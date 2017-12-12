@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+        #login_form{
+            width: 500px;
+            height: 480px;
+            margin: auto; /* align center */
+            /*border: 3px solid green;*/
+            border: 3px solid #f1f1f1;
+            padding: 10px;
+        }
+        #imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+        #avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+        
+        #page_title{
+            width: 500px;
+            margin: auto;
+            color: green;
+        }
+        #btnLogin{
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        #forget_password{
+            float: right;
+        }
+
+	</style>
+
+</head>
+<body>
+    <div id="page_title">Login to Bakery's Accounting System</div>
+	<form id="login_form">  
+    	<div id="imgcontainer">
+        	<img src="images/login_Logo.png" alt="Avatar" id="avatar">
+      	</div>
+        <div class="form-group">
+          <label for="usr">User Name:</label>
+          <input type="text" placeholder="Enter Username" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" placeholder="Enter Password" class="form-control" id="pwd">
+        </div>
+        <input type="checkbox" checked="checked"> Remember me <br>
+
+        <button type="submit" id="btnLogin">Login</button>
+    	<div id="forget_password">
+    	    <span class="psw"><a href="#">Forgot password?</a></span>
+	    </div>
+	</form>
+</body>
+</html>
