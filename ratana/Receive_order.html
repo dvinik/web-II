@@ -3,13 +3,13 @@
 <head>
 	<style>
 	  
-	.right {
+		.right {
 	    float: center;
 	    /*width: 300px;*/
 	    /*border: 2px solid #73AD21;*/
 	    padding: 10px;
-	}
-	table {
+		}
+		table {
 	    font-family: arial, sans-serif;
 	    border-collapse: collapse;
 	    width: 100%;
@@ -39,9 +39,15 @@
 	.delete{
 		color: red;
 	}
+	#h2{
+		color: red;
+	}
 	.active{
 		background-color: #dddddd;
 		color: black;
+	}
+	.line{
+		border-bottom: 2px solid black;
 	}
 	#downbutton{
 		background-color: #1E90FF;
@@ -49,16 +55,11 @@
 	.text-center{
 		color: white;
 	}
-	#h2{
-		color: green;
-	}
-	
 	</style>
 	<title>PurchaseOrder</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="container">
 	<div class="row" id="nav_top">
 			<div class="col-sm-2" style="color: white">Bakery and Cofe</div>
@@ -82,8 +83,8 @@
 			<div class="col-sm-10" >
 				<ul class="nav nav-pills">
 				  
-				  <li role="presentation"><a href="#" class="nav_text active">Create Order</a></li>
-				  <li role="presentation"><a href="Receive_order.html" class="nav_text">Recieve Order</a></li>
+				  <li role="presentation"><a href="purchaseNew.html" class="nav_text">Create Order</a></li>
+				  <li role="presentation"><a href="#" class="nav_text active">Recieve Order</a></li>
 				  <li role="presentation"><a href="#" class="nav_text">Approve Bill</a></li>
 				
 				</ul>
@@ -92,7 +93,7 @@
 		</div>
 	<div class="row">
 		<div class="col-sm-6">
-		<h2 id="h2">Create Purchese Order</h2>
+		<h2 id="h2">Receive Order</h2>
 		</div>
 		<div class="col-sm-6">	
 			<div class="right">
@@ -225,6 +226,25 @@
 			   </tr>
 
 		</table>
+	</div>
+	<div class="row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-6"><b>FreightCharge:</b><div class="line"><br></div></div><br>
+	</div>
+	<div class="row">
+		<div class="col-sm-6"></div>
+		<div class="col-sm-6"><b>Total:</b><div class="line"><br></div></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-6"><b>Order Receive By:</b>
+		<div class="line"><br></div>
+
+		</div>
+		<div class="col-sm-6"><b>Date Receive:</b>
+			<div class="line"><br></div>
+		</div>
+		
 	</div>
 	</div>	
 	<br>
