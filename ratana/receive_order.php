@@ -1,99 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<style>
-	  
-		.right {
-	    float: center;
-	    /*width: 300px;*/
-	    /*border: 2px solid #73AD21;*/
-	    padding: 10px;
-		}
-		table {
-	    font-family: arial, sans-serif;
-	    border-collapse: collapse;
-	    width: 100%;
-	}
-	td, th {
-	    border: 1px solid #dddddd;
-	    text-align: left;
-	    padding: 8px;
-	}
-	tr:nth-child(even) {
-	    background-color: #dddddd;
-	
-	}
-	#nav_top{
-			background-color: #333333;
-	}
-	#nav_second{
-		background-color: 	#1E90FF;
-	}
-	.nav_text{
-		color: white;
-	}
-	.pencil{
-		color: orange;
-		margin-right: 25px;
-	} 
-	.delete{
-		color: red;
-	}
-	#h2{
-		color: red;
-	}
-	.active{
-		background-color: #dddddd;
-		color: black;
-	}
-	.line{
-		border-bottom: 2px solid black;
-	}
-	#downbutton{
-		background-color: #1E90FF;
-	}
-	.text-center{
-		color: white;
-	}
-	</style>
-	<title>PurchaseOrder</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
-	<div class="row" id="nav_top">
-			<div class="col-sm-2" style="color: white">Bakery and Cofe</div>
-			<div class="col-sm-10">
-				<ul class="nav nav-pills">
-				  <!-- <li role="presentation"><a href="#">Home</a></li> -->
-				  <li role="presentation"><a href="#" class="nav_text" >Dashboard</a></li>
-				  <li role="presentation"><a href="Inventory.html" class="nav_text">Inventory</a></li>
-				  <li role="presentation"><a href="purchaseNew.html" class="nav_text active">Purchase Order</a></li>
-				  <li role="presentation"><a href="ExpanseView.html" class="nav_text">Vendor</a></li>
-				  <!-- <li role="presentation"><a href="#">Client</a></li> -->
-				  <li role="presentation"><a href="Report.html" class="nav_text">Report</a></li>
-				  <li role="presentation"><a href="#" class="nav_text">Setting</a></li>
-				  <label style="color:white">Ratana</label>
-				</ul>
-			</div>
-		</div>
-		<div class="row" id="nav_second">
-			<div class="col-sm-2">
-			</div>
-			<div class="col-sm-10" >
-				<ul class="nav nav-pills">
-				  
-				  <li role="presentation"><a href="purchaseNew.html" class="nav_text">Create Order</a></li>
-				  <li role="presentation"><a href="#" class="nav_text active">Recieve Order</a></li>
-				  <li role="presentation"><a href="#" class="nav_text">Approve Bill</a></li>
-				
-				</ul>
-				
-			</div>
-		</div>
-	<div class="row">
+<?php include("header.php"); ?>
+
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="row" id="nav_second">
+	<div class="col-sm-2">
+	</div>
+	<div class="col-sm-10" >
+		<ul class="nav nav-pills">
+		  
+		  <li role="presentation"><a href="expense.php" class="nav_text">Create Order</a></li>
+		  <li role="presentation"><a href="#" class="nav_text active">Recieve Order</a></li>
+		  <li role="presentation"><a href="vendor_list.php" class="nav_text">Vendor's List</a></li>
+		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor's Invoices</a></li>
+		  <li role="presentation"><a href="#" class="nav_text" >Approve Bill</a></li>
+
+		</ul>
+	</div>
+</div>
+
+<div class="row">
 		<div class="col-sm-6">
-		<h2 id="h2">Receive Order</h2>
+		<h3 id="h2">Receive Order</h2>
 		</div>
 		<div class="col-sm-6">	
 			<div class="right">
@@ -107,24 +34,66 @@
 
 	</div>
 	<hr>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-sm-6">
-		<span>Invoice Number:</span><input type="text" name="invoiceNumber"><br>
-		<span>Invoice Date:</span><input type="date" name="date"><br>
-		<span>Due Date:</span></select><input type="date" name="date">
-	</div>
+		<span><b>Invoice Number:</b></span><input type="text" name="invoiceNumber"><br>
+		<span><b>Invoice Date:</b></span><input type="date" name="date"><br>
+		<span><b>Due Date:</b></span></select><input type="date" name="date">
+		</div>
 		<div class="col-sm-6">
-			<span> Purcher Order Number:</span><input type="text" name="PurchaseOrderNumber"><br>
-			<div>Memo</div>
+			<span><b>Purcher Order Number:</b></span><input type="text" name="PurchaseOrderNumber"><br>
+			<div><b>Memo</b></div>
 			<textarea rows="4" cols="50" name="comment" form="usrform">
 				Enter text here...</textarea>
 		</div>
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<span><b>Invoice Number:</b></span>
+			</div>
+			<div class="col-sm-3">
+				<input type="text" name="invoiceNumber">
+			</div>
+			<div class="col-sm-2">
+				<span><b>P.O Number:</b></span>
+			</div>
+			<div class="col-sm-3">
+				<input type="text" name="purchaseOrderNumber">
+			</div>
+		
+		</div>
+		<br>		
+		<div class="row">
+			<div class="col-sm-2">
+				<span><b>Invoice Date:</b></span>
+			</div>
+			<div class="col-sm-3">
+				<input type="date" name="date">
+			</div>
+			<div class="col-sm-2">
+				<span><b>Memo:</b></span>
+			</div>
+			<div class="col-sm-3">
+				<textarea name="comment" form="usrform">Enter text here...</textarea>
+			</div>
+		</div>
+		<br>		
+		<div class="row">
+			<div class="col-sm-2">
+				<span><b>Due Date:</b></span>
+			</div>
+			<div class="col-sm-3">
+				<input type="date" name="date">
+			</div>
+		<br>		
+	</div>
 	</div>
 
-	<h3>Vender's information</h3>
+	<h3 id="h3">Vender's information</h3>
 	<div class="row">
 			<div class="col-sm-6">
-				<span>Vender's name:</span>
+				<span><b>Vender's name:</b></span>
 				<div class="dropdown">
 				    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose vender's name
 				    <span class="caret"></span></button>
@@ -138,7 +107,7 @@
 				Pop up vender information after choose from drop box</textarea>
 			</div>
 			<div class="col-sm-6">
-				<span>Ship To:</span>
+				<span><b>Ship To:</b></span>
 				<div class="dropdown">
 				    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Company's name
 				    <span class="caret"></span></button>
@@ -152,8 +121,9 @@
 				Pop up company's information after choose from drop box</textarea>
 			</div>
 	</div>
-	<h3>Item's list</h3>
+	<h3 id="h3">Item's list</h3>
 	<div class="row">
+	<br>
 		<table>
 
 			<tr>
@@ -163,7 +133,7 @@
 				<th>Price/Unite</th>
 				<th>Toal</th>
 				<th>Frieght</th>
-				<th>Action</th>
+				<th>Edit/Delete</th>
 
 			</tr>
 			 <tr>
@@ -238,25 +208,12 @@
 	<br>
 	<div class="row">
 		<div class="col-sm-6"><b>Order Receive By:</b>
-		<div class="line"><br></div>
-
+			<div class="line"><br></div>
 		</div>
 		<div class="col-sm-6"><b>Date Receive:</b>
 			<div class="line"><br></div>
 		</div>
 		
 	</div>
-	</div>	
-	<br>
-	<br>
-	<div class="row" id="downbutton">
-		<div class="text-center">&copy;2017 Stamford International University</div>
-		<div class="text-center">WebII DatabaseII & Accounting</div>
-	</div>
-
-	<script src="https://use.fontawesome.com/b18009260a.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+</div>
+<?php include("footer.php"); ?>

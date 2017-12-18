@@ -43,18 +43,18 @@
 
 </head>
 <body>
-    <div id="page_title">Login to Bakery's Accounting System</div>
-	<form id="login_form">  
+    <div id="page_title"><b>Login to Bakery's Accounting System</b></div>
+	<form id="login_form" action="controllers/login.php" method="post">  
     	<div id="imgcontainer">
         	<img src="images/login_Logo.png" alt="Avatar" id="avatar">
       	</div>
         <div class="form-group">
           <label for="usr">User Name:</label>
-          <input type="text" placeholder="Enter Username" class="form-control" id="usr">
+          <input type="text" placeholder="Enter Username" class="form-control" id="usr" name="username">
         </div>
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" placeholder="Enter Password" class="form-control" id="pwd">
+          <input type="password" placeholder="Enter Password" class="form-control" id="pwd" name="password">
         </div>
         <input type="checkbox" checked="checked"> Remember me <br>
 
@@ -65,9 +65,6 @@
         
         <a href="Create_User.html">Create User</a>
            
-    
-        
-
 	</form>
 </body>
 </html>
