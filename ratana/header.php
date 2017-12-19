@@ -37,13 +37,13 @@
 			<div class="col-sm-10">
 				<ul class="nav nav-pills">
 				  <!-- <li role="presentation"><a href="#">Home</a></li> -->
-				  <li role="presentation"><a href="index.php" class="nav_text" >Dashboard</a></li>
-				  <li role="presentation"><a href="inventory.php" class="nav_text">Inventory</a></li>
-				  <li role="presentation"><a href="expense.php" class="nav_text">Expense</a></li>
-				  <li role="presentation"><a href="revenue.php" class="nav_text">Revenue</a></li>
+				  <li role="presentation"><a href="index.php" class="nav_text top_menu" menu="Dashboard">Dashboard</a></li>
+				  <li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Inventory">Inventory</a></li>
+				  <li role="presentation"><a href="expense.php" class="nav_text top_menu" menu="Expense">Expense</a></li>
+				  <li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Revenue">Revenue</a></li>
 				  <!-- <li role="presentation"><a href="#">Client</a></li> -->
-				  <li role="presentation"><a href="report.php" class="nav_text">Report</a></li>
-				  <li role="presentation"><a href="#" class="nav_text">Setting</a></li>
+				  <li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Report">Report</a></li>
+				  <li role="presentation"><a href="setting.php" class="nav_text top_menu" menu="Setting">Setting</a></li>
 				  	<div class="user_name">
 				  		<label style="color:white; margin-top: 10px;">Ratana</label>
 						  <?php 

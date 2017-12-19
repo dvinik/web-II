@@ -1,14 +1,13 @@
 <?php include("header.php"); ?>
 <link rel="stylesheet" type="text/css" href="style.css">
 <div class="row" id="nav_second">
-	<div class="col-sm-2">
-	</div>
+	<div class="col-sm-2"></div>
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
 		  
-		  <li role="presentation"><a href="#" class="nav_text">Inventory</a></li>
-		  <li role="presentation"><a href="#" class="nav_text">Inventory Invoices</a></li>
-		  <li role="presentation"><a href="#" class="nav_text">Credit Notes</a></li>
+		  <li role="presentation"><a href="#" class="nav_text active">Inventory</a></li>
+		  <li role="presentation"><a href="inventory_report.php" class="nav_text">Inventory Report</a></li>
+		  <!-- <li role="presentation"><a href="#" class="nav_text">Credit Notes</a></li> -->
 		
 		</ul>
 		
@@ -82,9 +81,6 @@
 				<button type="button" class="btn btn-primary">Save&Transfer</button>
 			</div>
 		</div>
-		
-
-		
 	</div>
 
 

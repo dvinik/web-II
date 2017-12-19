@@ -7,14 +7,14 @@
 		<ul class="nav nav-pills">
 		  <li role="presentation"><a href="#" class="nav_text active">Create Order</a></li>
 		  <li role="presentation"><a href="receive_order.php" class="nav_text">Recieve Order</a></li>
-		  <li role="presentation"><a href="vendor_list.php" class="nav_text">Vendor's List</a></li>
-		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor's Invoices</a></li>
-		  <li role="presentation"><a href="#" class="nav_text">Approve Bill</a></li>
+		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor Invoices</a></li>
+		  <li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
+		  <li role="presentation"><a href="vendor_list.php" class="nav_text">Vendor List</a></li>
 		</ul>
 		
 	</div>
 </div>
-<div class="row">
+<div class="row" style="background-color: #f2f2f2">
 	<div class="col-sm-6">
 	<h2 id="h2">Create Purchese Order</h2>
 	</div>
@@ -203,31 +203,33 @@
 			<th>Quantity</th>
 			<th>Price/Unite</th>
 			<th>Toal</th>
-			<th>Frieght</th>
+			<!-- <th>Frieght</th> -->
 			<th>Action</th>
 
 		</tr>
 		 <tr>
 		    <td>123</td>
-		    <td>Maria Anders</td>
-		    <td>5</td>
-		    <td>$10</td>
-		    <td>50</td>
-		    <td>Truck</td>
+		    <td>Cake</td>
+		    <td>500</td>
+		    <td>10</td>
+		    <td>5000</td>
+		    <!-- <td>Truck</td> -->
 		    <td>
 		    <i class="fa fa-pencil pencil" aria-hidden="true"></i>
-		    <i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    	<i class="fa fa-trash-o delete" aria-hidden="true"></i>
 		    </td>
 
-		  </tr>
+		 </tr>
 		  <tr>
 		    <td>345</td>
 		    <td>Francisco Chang</td>
 		    <td>5</td>
 		    <td>$10</td>
 		    <td>50</td>
-		     <td>Truck</td>
-		    <td><i class="fa fa-pencil pencil" caria-hidden="true"></i></td>
+		     <!-- <td>Truck</td> -->
+		    <td><i class="fa fa-pencil pencil" caria-hidden="true"></i>
+		    	 <i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    </td>
 		  </tr>
 		  <tr>
 		    <td>678</td>
@@ -235,8 +237,10 @@
 		    <td>5</td>
 		    <td>$10</td>
 		    <td>50</td>
-		     <td>Truck</td>
-		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i></td>
+		     <!-- <td>Truck</td> -->
+		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i>
+		     	<i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    </td>
 		  </tr>
 		  <tr>
 		    <td>891</td>
@@ -244,8 +248,10 @@
 		    <td>5</td>
 		    <td>$10</td>
 		    <td>50</td>
-		     <td>Truck</td>
-		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i></td>
+		     <!-- <td>Truck</td> -->
+		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i>
+		     	<i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    </td>
 		  </tr>
 		  <tr>
 		    <td>912</td>
@@ -253,8 +259,10 @@
 		    <td>5</td>
 		    <td>$10</td>
 		    <td>50</td>
-		     <td>Truck</td>
-		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i></td>
+		     <!-- <td>Truck</td> -->
+		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i>
+		     	<i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    </td>
 		  </tr>
 		  <tr>
 		    <td>923</td>
@@ -262,9 +270,11 @@
 		   	<td>5</td>
 		    <td>$10</td>
 		    <td>50</td>
-		     <td>Truck</td>
-		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i></td>
-		   </tr>
+		     <!-- <td>Truck</td> -->
+		    <td><i class="fa fa-pencil pencil"  aria-hidden="true"></i>
+		     	<i class="fa fa-trash-o delete" aria-hidden="true"></i>
+		    </td>
+		  </tr>
 	</table>
 </div>
 
