@@ -5,13 +5,11 @@
 	</div>
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
-		  
 		  <li role="presentation"><a href="expense.php" class="nav_text">Create Order</a></li>
 		  <li role="presentation"><a href="receive_order.php" class="nav_text">Recieve Order</a></li>
-		  <li role="presentation"><a href="vendor_list.php" class="nav_text active">Vendor's List</a></li>
-		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor's Invoices</a></li>
-		   <li role="presentation"><a href="#" class="nav_text">Approve Bill</a></li>
-		
+		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor Invoices</a></li>
+		  <li role="presentation"><a href="#" class="nav_text">Approve Bill</a></li>
+		  <li role="presentation"><a href="vendor_list.php" class="nav_text active" menu="Expense">Vendor List</a></li>
 		</ul>
 		
 	</div>

@@ -62,3 +62,18 @@ footer.sticky-footer {
 #h3{
     color: green;
 }
+.checkmark {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*height: 25px;*/
+    /*width: 25px;*/
+    /*padding: 0;*/
+    background-color: #eee;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
