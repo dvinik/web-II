@@ -77,3 +77,12 @@ footer.sticky-footer {
     border-color: #007bff;
 }
 
+.nav-pills>li>a {
+    border-radius: 4px;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}

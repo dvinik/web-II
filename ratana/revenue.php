@@ -6,9 +6,11 @@
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
 		  
-		  <li role="presentation"><a href="#" class="nav_text">Need Name</a></li>
-		  <li role="presentation"><a href="#" class="nav_text">Need Name</a></li>
-		  <li role="presentation"><a href="#" class="nav_text">Need Name</a></li>
+		  <li role="presentation"><a href="#" class="nav_text">Create Sales Order</a></li>
+		  <li role="presentation"><a href="#" class="nav_text">View Sales Order List</a></li>
+		  <li role="presentation"><a href="#" class="nav_text">Sale Order Report</a></li>
+		   <li role="presentation"><a href="#" class="nav_text">Add customer</a></li>
+		   <li role="presentation"><a href="#" class="nav_text">Customer View</a></li>
 		
 		</ul>
 		

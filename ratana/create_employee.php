@@ -1,23 +1,11 @@
 <?php include("header.php"); ?>
 
-<link rel="stylesheet" type="text/css" href="style.css">
-<div class="row" id="nav_second">
-	<div class="col-sm-2">
-	</div>
-	<div class="col-sm-10" >
-		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="Create_User.html" class="nav_text" manu ="Setting">Create User</a></li>
-		</ul>
-		
-	</div>
-</div>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+  <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<style>
+  <style>
         #login_form{
             width: 500px;
             height: 750px;
@@ -56,16 +44,18 @@
           color: red;
         }
 
-	</style>
+  </style>
+
+<br>
 
 </head>
 <body>
-    <div id="page_title">Login to Bakery's Accounting System</div>
-	<form id="login_form">  
-    	<div id="imgcontainer">
-        	<img src="images/login_Logo.png" alt="Avatar" id="avatar">
-      	</div>
-      	<div class="form-group">
+    <div id="page_title"><h1><b>Create Employee</b></h1></div>
+  <form id="login_form">  
+      <div id="imgcontainer">
+          <img src="images/login_Logo.png" alt="Avatar" id="avatar">
+        </div>
+        <div class="form-group">
           <label for="lastname"><b>Last Name:</b></label>
           <input type="text" placeholder="Enter lastname" class="form-control" id="l_name">
         </div>
@@ -90,57 +80,53 @@
           <input type="email" placeholder="name@gamil.com" class="form-control" id="email"><span class="hint" id="emialFeedback"></span>
         </div>
 
-
-        
-
-        
-		<!-- <input type="checkbox" checked="checked"> <b>Remember me</b> <br> -->
-		<button type="submit" id="btnLogin"><b>Create User</b></button>
-    	<div id="forget_password">
-    	    <!-- <span class="psw"><a href="#">Forgot password?</a></span> -->
-	    </div>
+    <!-- <input type="checkbox" checked="checked"> <b>Remember me</b> <br> -->
+    <button type="submit" id="btnLogin"><b>Create User</b></button>
+      <div id="forget_password">
+          <!-- <span class="psw"><a href="#">Forgot password?</a></span> -->
+      </div>
 
         <script>
         
-		document.getElementById("username").onblur = function(){
-			var elmessage = document.getElementById("feedbackusername");
-			if(this.value.length< 8){
-				elmessage.textContent = "Username must be 8 characters or more";
-			} else{
-				elmessage.textContent ="";
-			}
-		};
-		document.getElementById("Password").onblur = function(){
-			var elPswMsg = document.getElementById("feedbackpassword");
-			if(this.value.length< 8){
-				elPswMsg.textContent = "Username must be 8 characters or more";
-			} else{
-				elPwMsg.textContent ="";
-			}
-		};
-		document.getElementById("cpwd").onblur = function(){
-			// create varieable for get old password
-			var password = document.getElementById("Password").value;
-			if(this.value != password){
-				document.getElementById("feedbackConPsw").textContent ="Password and confirm Pasword is not match";
-			}else{
-				document.getElementById("feedbackConPsw").textContent ="Password Match"
-			}
-		};
-		document.getElementById("email").onblur = function(){
-			 var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
-			if(reg.test(this.value)){
-				document.getElementById("emialFeedback").textContent ="it is a valid email address";
-			}else{
-				document.getElementById("emialFeedback").textContent ="it is a invalid email address";
-			}
-		};
-		
-		
-	</script>
+    document.getElementById("username").onblur = function(){
+      var elmessage = document.getElementById("feedbackusername");
+      if(this.value.length< 8){
+        elmessage.textContent = "Username must be 8 characters or more";
+      } else{
+        elmessage.textContent ="";
+      }
+    };
+    document.getElementById("Password").onblur = function(){
+      var elPswMsg = document.getElementById("feedbackpassword");
+      if(this.value.length< 8){
+        elPswMsg.textContent = "Username must be 8 characters or more";
+      } else{
+        elPwMsg.textContent ="";
+      }
+    };
+    document.getElementById("cpwd").onblur = function(){
+      // create varieable for get old password
+      var password = document.getElementById("Password").value;
+      if(this.value != password){
+        document.getElementById("feedbackConPsw").textContent ="Password and confirm Pasword is not match";
+      }else{
+        document.getElementById("feedbackConPsw").textContent ="Password Match"
+      }
+    };
+    document.getElementById("email").onblur = function(){
+       var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+      if(reg.test(this.value)){
+        document.getElementById("emialFeedback").textContent ="it is a valid email address";
+      }else{
+        document.getElementById("emialFeedback").textContent ="it is a invalid email address";
+      }
+    };
+    
+    
+  </script>
            
     
-	</form>
+  </form>
 </body>
 </html>
 
