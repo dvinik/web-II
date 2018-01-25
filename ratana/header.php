@@ -47,7 +47,7 @@
 				  <li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Revenue">Sales</a></li>
 				  <li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Report">Inventory</a></li>
 				  <li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Setting">Report</a></li>
-				  <li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Setting">My Comapany</a></li>
+				  <li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Setting">My Company</a></li>
 				  	<div class="user_name">
 				  		<label style="color:white; margin-top: 10px;"></label>
 						  <?php 

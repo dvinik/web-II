@@ -10,9 +10,9 @@
 	</div>
 </div>
 <br>
-<div class="container">
-	<div class="jumbotron">
-	<div class="row"  style="background-color: #f2f2f2">
+<!-- <div class="container"> -->
+	<!-- <div class="jumbotron"> -->
+	<div class="row" >
 		<div class="col-sm-6">
 			<h3>Balance Sheet</h3>
 			<p>Lists what you own (assets), what your debts are (liabilities), and what you have invested in your company (equity).
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	<div class="row"  style="background-color: #f2f2f2">
+	<div class="row">
 		<div  class="col-sm-6">
 			<h3>A/P Aging Summary</h3>
 			<p>Shows unpaid invoices for the current period and for the last 30, 60 and 90+ days so you can see how long they have been open (outstanding).</p>
@@ -57,9 +57,9 @@
 	</div>
 
 
-	</div>
-</div>
-
+	<!-- </div> -->
+<!-- </div>
+ -->
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+include_once("constant.php");
 
 // connect database
 // $link = mysqli_connect("localhost", "root", "root", 'accounting'); // local

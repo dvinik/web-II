@@ -25,18 +25,10 @@
 		</div>
 </div>
 <div class="row" style="background-color: #f2f2f2">
-	<div class="col-sm-6">
+	<!-- <div class="col-sm-6">
 		<h2 id="h2">Supplier List</h2>
-	</div>
-	<div class="col-sm-6">
-		<div class="right">
-			<ul class="nav nav-pills">
-				<li role="presentation" class="active"><a href="#">Print</a></li>
-				<!-- <li role="presentation"><a href="#">Save</a></li>
-				<li role="presentation"><a href="#">Save and New</a></li> -->
-			</ul>
-		</div>
-	</div>
+	</div> -->
+	
 
 </div>
 <hr>
@@ -44,7 +36,7 @@
 	<div class="jumbotron mt-4">
 		<div class="row">
 			<div class="col-sm-9">
-				<span><b>Supplier List</b></span>
+				<span></span>
 			</div>
 			<div class="col-sm-3">
 			<button id="add_button_supplier_list">+Add new Supplier</button>

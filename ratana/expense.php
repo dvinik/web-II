@@ -16,30 +16,20 @@
 		
 	</div>
 </div>
-<div class="row" style="background-color: #f2f2f2">
-	<div class="col-sm-6">
-	<h2 id="h2">Purchese Order View</h2>
-	</div>
-	<div class="col-sm-6">	
-		<div class="right">
-			<ul class="nav nav-pills">
-			  <li role="presentation" class="active"><a href="#">Print</a></li>
-			  <!-- <li role="presentation"><a href="#">Save</a></li> -->
-			  <!-- <li role="presentation"><a href="#">Save and New</a></li> -->
-			</ul>
+<br>
+	
+	<div class="row">
+		<div class="col-sm-10">
+		<a href="create_po.php" class="btn btn-primary">Create New Purchase Order</a>
+		</div>
+		<div class="col-sm-2">
+			<i class="fa fa-print fa-3x" aria-hidden="true" style="color:blue"></i>
 		</div>
 	</div>
-
-</div>
-<hr>
-
-	<a href="create_po.php"><h2><b>Create New Purchase Order</b></h2></a>	
-
 <div class="container">
-	<div class="jumbotron mt-4">
-		<h4>Purchese Order View</h4>
+	
 		<hr class="my-4">
-		<h5>1. General Information</h5>
+		<h4 id="h2" class="text-center"><b>Puchase Order View</b> </h4>
 		<table class="table table-striped">
 			<thead>
 			<tr>
@@ -53,10 +43,10 @@
 			</tr>
 			</thead>
 			<tbody>
-			
+
 			</tbody>
 		</table>
-	</div>
+	
 </div>
 
 	<?php include_once('footer.php'); ?>

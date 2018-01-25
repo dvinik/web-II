@@ -16,17 +16,14 @@
 	</div>
 </div>
 <div class="row" style="background-color: #f2f2f2">
-	<div class="col-sm-6">
-	<h2 id="h2">Create Purchase Order</h2>
+	<div class="col-sm-8">
+	<h1 id="h2">Create Purchase Order</h1>
 	</div>
-	<div class="col-sm-6">	
-		<div class="right">
+	<div class="col-sm-4">	
 			<ul class="nav nav-pills">
-			  <li role="presentation" class="active"><a href="#">Print</a></li>
-			  <li role="presentation"><a href="#">Save</a></li>
-			  <li role="presentation"><a href="#">Save and New</a></li>
+			  <li role="presentation" class="active"><a href="#" class="btn btn-success">Print</a></li>
+			   <li role="presentation" class="active"><a href="#" class="btn btn-primary">Print Preview</a></li>
 			</ul>
-		</div>
 	</div>
 
 </div>
@@ -61,12 +58,11 @@
 			</div>
 		</div>
 		<br>		
-
+<div class="container">
 		<div class="row" style="background-color: #f2f2f2">
-		<h3 id="h3"><b>1. Vender's information</b></h3>
+		<h3 id="h3"><b>I. Vender's information</b></h3>
 		<hr>
 		<div class="row">
-
 			<form action ="" method ="post">
 				<button id="creater_suppliers" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"> +Add new Vender</button>
 				<div class="form-row">
@@ -93,8 +89,8 @@
 				</div>
 
 			</form>
+		</div>
 
-				
 				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
@@ -137,12 +133,14 @@
 				    </div>
 				  </div>
 				</div>
+
 			 <br>
 		</div>
-	</div>
+
+</div>	
 		
-		<div class="row" style="background-color: #f2f2f2">
-		<h3 id="h3"><b>3. Product's Detail</b></h3>
+	<div class="row" style="background-color: #f2f2f2">
+		<h3 id="h3"><b>II. Product's Detail</b></h3>
 	</div>	
 	<br>
 		<div class="row">
@@ -167,6 +165,26 @@
 	</div>
 	</div>	
 </div>
+<br>
+	<div class="row">
+		<div class="col-sm-7">
+		</div>
+		<div class="col-sm-5">
+			<span style="color:mediumblue"><b>Total Amounts = Baht </b><input type="text" name="total_amount"></input></span>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-9">
+		</div>
+		<div class="col-sm-3">	
+				<ul class="nav nav-pills">
+				  <li role="presentation"> <a href="#"  class="btn btn-danger">Save</a></li>
+				  <li role="presentation"> <a href="#"  class="btn btn-primary">Save and New</a></li>
+				</ul>
+		</div>
+	</div>
+
 <?php include("footer.php"); ?>
 <script type="text/javascript">
 $(function(){

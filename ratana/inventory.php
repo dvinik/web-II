@@ -1,5 +1,6 @@
 <?php include("header.php"); ?>
-<?php include ("add_new_product.php");?>
+<?php include_once('config.php');?>
+<?php include ("add_new_product_modal.php");?>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 	<div class="row" id="nav_second">
@@ -15,7 +16,7 @@
     <div class="row" style="background-color: #f2f2f2">
       <div class="col-sm-6">
         <h2 id="h2">Product List</h2>
-      </div>
+    </div>
       <div class="col-sm-6">
         <div class="right">
           <ul class="nav nav-pills">
@@ -43,24 +44,45 @@
                <table  id="purchase_order_table"  style = "width:100%">
             <thead>
               <tr>
-                <th> ID</th>
-                <th>Product code</th>
-                <th>Product Name</th>
-                <th>Supllier ID</th>
-                 <th>Decription</th>
-                <th>Standard Cost</th>
-                <th>List Price  </th>
-               <!--  <th>Order Level</th>
-                <th>Target Level </th> -->
-                <th>Product Type ID </th>
-
+                <th width="10%">Product code</th>
+                <th width="20%">Product Name</th>
+                <th width="30%">Decription</th>
+                <th width="5%">Standard Cost</th>
+                <th width="10%">List Price  </th>
+                <th width="10%">Product Category </th>
               </tr>
           </thead>
           <tbody>
+            <?php
+            $sql = "SELECT p.*, pt.product_types FROM `products` AS p 
+                    INNER JOIN product_types AS pt ON p.product_type_id = pt.product_type_id order by p.product_id ASC";
+            $retval = mysqli_query($link, $sql);
+            while($row = mysqli_fetch_array($retval)) {
+              echo "<tr>";
+              $id = $row["product_id"];
+              $product_code = $row["product_code"];
+              $product_name = $row["product_name"];
+              $description = $row["description"];
+              $standard_cost = $row["standard_cost"];
+              $list_price = $row["list_price"];
+              $product_type = $row["product_types"];
+              echo "<td>{$product_code}</td>";
+              echo "<td>{$product_name}</td>";
+              echo "<td>{$description}</td>";
+              echo "<td>{$standard_cost}</td>";
+              echo "<td>{$list_price}</td>";
+              echo "<td>{$product_type}</td>";
+
+              //echo "<td><i supplier_id = '$supplier_id' supplier_name='$supplier_name' email ='$email' phone = '$phone' fax ='$fax' address ='$address' city = '$city' state ='$state' zipcode ='$zipcode' country ='$country' class=' edit_supplier fa fa-pencil fa-1x'></i></td>";
+              //echo "<td><i a_id='$supplier_id' class='delete_supplier fa fa-trash' aria-hidden='true'></i> </td>";
+
+              echo "</tr>";
+            }
+            mysqli_close($link);
+            ?>
             <tr>
+              <!-- <td width="10%"></td> -->
               <td width="10%"></td>
-              <td width="10%"></td>
-              <td width="15%"></td>
               <td width="15%"></td>
               <td width="15%"></td>
               <td width="15%"></td>

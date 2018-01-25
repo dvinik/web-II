@@ -9,10 +9,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-               <!--   <div class="form-group">
-                        <label for="usr">Vendor ID</label>
-                        <input type="text" class="form-control" id="vendor_name" name="vendor_name">
-                    </div> -->
+                    <div class="form-group row">
+                        <label for="product_code" class="col-4 col-form-label">Product Code</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="product_code" name="product_code">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="usr">Vendor Name</label>
                         <input type="text" class="form-control" id="supplier_name" name="supplier_name">
