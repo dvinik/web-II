@@ -33,7 +33,7 @@
             <span><b>Products View</b></span>
           </div>
           <div class="col-sm-3">
-          <button id="add_button_product_list">+Add new Product</button>
+          <button class="btn btn-primary" id="add_button_product_list">+Add new Product</button>
           </div>
         </div>
         <br>
