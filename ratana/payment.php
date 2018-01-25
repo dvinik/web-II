@@ -7,7 +7,7 @@
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
 		  
-		  <li role="presentation"><a href="expense.php" class="nav_text">Create Order</a></li>
+		  <li role="presentation"><a href="purchase.php" class="nav_text">Create Order</a></li>
 		  <li role="presentation"><a href="receive_order.php" class="nav_text" >Receive Order</a></li>
 		  <li role="presentation"><a href="vendor_invoice.php" class="nav_text">Vendor Invoices</a></li>
 		  <li role="presentation"><a href="payment.php" class="nav_text active" menu ="Expense">Payment</a></li>

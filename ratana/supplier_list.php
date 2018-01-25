@@ -17,9 +17,9 @@
 	</div>
 		<div class="col-sm-10" >
 		 	 <ul class="nav nav-pills">
-	           <li role="presentation"><a href="" class="nav_text">Purchase Order </a></li>
-	           <li role="presentation"><a href="receiving_form.php" class="nav_text">Reciev Order</a></li>
-	           <li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
+	           <li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
+	           <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
+	           <li role="presentation"><a href="supplier_list.php" class="nav_text active">Supplier List</a></li>
           		<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
      		</ul>
 		</div>
@@ -65,7 +65,7 @@
 			</thead>
 			<tbody>
 			<?php
-			$sql = 'SELECT * from suppliers order by supplier_id ASC';
+			$sql = "SELECT * from ".TBL_SUPPLIERS." order by supplier_id ASC";
 			$retval = mysqli_query($link, $sql);
 			while($row = mysqli_fetch_array($retval)) {
 				echo "<tr>";
@@ -112,8 +112,11 @@ $(function(){
 		var $ele = $(this).parent().parent();
 		$.ajax({
 			type:'POST',
-			url:'delete_supplier.php',
-			data:{'del_id':del_id},
+			url:'controller.php',
+			data:{
+				'action':"delete_supplier",
+				'del_id':del_id
+			},
 			success: function(data){
 				if(data=="YES"){
 					$ele.fadeOut().remove();
@@ -121,7 +124,6 @@ $(function(){
 					alert("can't delete the row");
 				}
 			}
-
 		});
 	});
 	$(".edit_supplier").on("click",function(){

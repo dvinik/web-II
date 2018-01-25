@@ -8,8 +8,8 @@
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
            
-           <li role="presentation"><a href="" class="nav_text">Purchase Order </a></li>
-           <li role="presentation"><a href="receiving_form.php" class="nav_text">Reciev Order</a></li>
+           <li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
+           <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
            <li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
           <li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
      	</ul>
@@ -20,7 +20,7 @@
 	
 	<div class="row">
 		<div class="col-sm-10">
-		<a href="create_po.php" class="btn btn-primary">Create New Purchase Order</a>
+		<a href="create_purchase_order.php" class="btn btn-primary">Create New Purchase Order</a>
 		</div>
 		<div class="col-sm-2">
 			<i class="fa fa-print fa-3x" aria-hidden="true" style="color:blue"></i>

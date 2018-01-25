@@ -7,10 +7,10 @@
 	</div>
 	<div class="col-sm-10" >
 		 <ul class="nav nav-pills">
-           <li role="presentation"><a href="" class="nav_text">Purchase Order </a></li>
-           <li role="presentation"><a href="receiving_form.php" class="nav_text">Reciev Order</a></li>
-           <li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
-          <li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
+            <li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
+            <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
+            <li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
+            <li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
      	</ul>
 		
 	</div>
@@ -21,8 +21,8 @@
 	</div>
 	<div class="col-sm-4">	
 			<ul class="nav nav-pills">
-			  <li role="presentation" class="active"><a href="#" class="btn btn-success">Print</a></li>
-			   <li role="presentation" class="active"><a href="#" class="btn btn-primary">Print Preview</a></li>
+			    <li role="presentation" class="active"><a href="#" class="btn btn-success">Print</a></li> &nbsp;
+				<li role="presentation" class="active"><a href="#" class="btn btn-primary">Print Preview</a></li>
 			</ul>
 	</div>
 
@@ -179,7 +179,7 @@
 		</div>
 		<div class="col-sm-3">	
 				<ul class="nav nav-pills">
-				  <li role="presentation"> <a href="#"  class="btn btn-danger">Save</a></li>
+				  <li role="presentation"> <a href="#"  class="btn btn-danger">Save</a></li> &nbsp;
 				  <li role="presentation"> <a href="#"  class="btn btn-primary">Save and New</a></li>
 				</ul>
 		</div>

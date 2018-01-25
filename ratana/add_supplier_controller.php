@@ -23,8 +23,8 @@ if(!$link){
         error_log($sql);
         if($link->query($sql)){
             echo "sucessfully inserted";
-            echo "<a href='expense.php'>Return to the PO page</a>";
-            header("Location: http://localhost/acc/expense.php");
+            echo "<a href='purchase.php'>Return to the PO page</a>";
+            header("Location: http://localhost/acc/purchase.php");
             exit;
         }else{
             echo "failed";

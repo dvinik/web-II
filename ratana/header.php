@@ -43,7 +43,7 @@
 				<ul class="nav nav-pills">
 				 
 				  <li role="presentation"><a href="index.php" class="nav_text top_menu" menu="Dashboard">Dashboard</a></li>
-				  <li role="presentation"><a href="expense.php" class="nav_text top_menu" menu="Expense">Purchase</a></li>
+				  <li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Expense">Purchase</a></li>
 				  <li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Revenue">Sales</a></li>
 				  <li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Report">Inventory</a></li>
 				  <li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Setting">Report</a></li>

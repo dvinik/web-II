@@ -6,6 +6,8 @@
 		create_new_product_category();
 	}elseif($action == "create_new_product"){
 		create_new_product();
+	}elseif($action == "delete_supplier"){
+		delete_supplier();
 	}
 
 	function create_new_product_category(){
@@ -47,6 +49,15 @@
 			}
 		}
 	}
-
+	function delete_supplier(){
+		global $link;
+		$del_id = $_POST['del_id'];
+		$mysql ="DELETE FROM ".TBL_SUPPLIERS." WHERE supplier_id = $del_id";
+		if($link->query($mysql)){
+			echo "YES";
+		}else{
+			echo "NO";
+		}
+	}
 	if($link) $link->close();
 ?>
