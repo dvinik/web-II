@@ -1,4 +1,6 @@
 <?php include("header.php"); ?>
+<?php include ("add_new_product.php");?>
+
 <link rel="stylesheet" type="text/css" href="style.css">
 	<div class="row" id="nav_second">
 		<div class="col-sm-2"></div>
@@ -10,63 +12,82 @@
 	 </div>
 	</div>
   
-    <div class="row" align="center" style="background-color: #f2f2f2">
-    <h3 id="h3">Products View</h3></div>
+    <div class="row" style="background-color: #f2f2f2">
+      <div class="col-sm-6">
+        <h2 id="h2">Product List</h2>
+      </div>
+      <div class="col-sm-6">
+        <div class="right">
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#">Print</a></li>
+            <!-- <li role="presentation"><a href="#">Save</a></li>
+            <li role="presentation"><a href="#">Save and New</a></li> -->
+          </ul>
+        </div>
+  </div>
     <hr>
   <div class="container">
     <div class="jumbotron">
-      <div class="row">
-          <div class="col-sm-4">
-           <span><b>Date:</b></span> <input type="date" name="date">
+        <div class="row">
+          <div class="col-sm-9">
+            <span><b>Products View</b></span>
           </div>
-        <!--   <div class="col-sm-4">
-            <span><b>End Date:</b></span>
-            <input type="date" name="date">
-          </div> -->
-       <!--    <div class="col-sm-">
-            <button type="button" class="btn btn-info">
-                <span class="glyphicon glyphicon-search"></span> Search
-              </button>
-          </div> -->
-        </div>
-        <br>    
-
-  <br>
-    <div class="card mb-3">
-        <div class="card-header"> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-table"></i> <b style="color: green;">Product List</b></div>
-        <div class="card-body">
-          <div class="table-responsive">
-           <table  id="purchase_order_table"  style = "width:100%">
-        <thead>
-          <tr>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Unit Cost</th>
-             <th>Quantity On Comming</th>
-            <th>Quantity In Stock</th>
-            <th>Quantity On Order</th>
-            <!-- <th>Comment</th> -->
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td width="15%"><input type="number" name="product_id" style="width: 100%;"></td>
-          <td width="25%"><input type="text" name="product_name" style="width: 100%;"></td>
-          <td width="20%"><input type="number" name="unit_cost" style="width: 100%;"></td>
-          <td width="20%"><input type="number" name="qty_oncomming" style="width: 100%;"></td>
-          <td width="20%"><input type="number" name="qty_instock" style="width: 100%;"></td>
-          <td width="10%"><input type="number" name="qty_onorder" style="width: 100%;"></td>
-
-        </tr>
-               
-      </tbody>
-    </table>
+          <div class="col-sm-3">
+          <button id="add_button_product_list">+Add new Product</button>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-       </div>
+        <br>
+        <div class="card mb-3">
+            <div class="card-body">
+              <div class="table-responsive">
+               <table  id="purchase_order_table"  style = "width:100%">
+            <thead>
+              <tr>
+                <th> ID</th>
+                <th>Product code</th>
+                <th>Product Name</th>
+                <th>Supllier ID</th>
+                 <th>Decription</th>
+                <th>Standard Cost</th>
+                <th>List Price  </th>
+               <!--  <th>Order Level</th>
+                <th>Target Level </th> -->
+                <th>Product Type ID </th>
+
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="10%"></td>
+              <td width="10%"></td>
+              <td width="15%"></td>
+              <td width="15%"></td>
+              <td width="15%"></td>
+              <td width="15%"></td>
+              <td width="15%"></td>
+              <td width="15%"></td>
+            </tr>
+          </tbody>
+        </table>
+              </div>
+            </div>
+          
+           </div>
     </div>
   </div>
-	
-
 <?php include("footer.php"); ?>
+
+<script type="text/javascript">
+
+$(function(){
+  $("#add_button_product_list").on("click", function(){
+    $("#add_new_product_modal").modal("show");
+  });
+
+});
+
+
+</script>
+
+
+

@@ -73,7 +73,7 @@
 			</thead>
 			<tbody>
 			<?php
-			$sql = 'SELECT * from Suppliers order by supplier_id ASC';
+			$sql = 'SELECT * from suppliers order by supplier_id ASC';
 			$retval = mysqli_query($link, $sql);
 			while($row = mysqli_fetch_array($retval)) {
 				echo "<tr>";
