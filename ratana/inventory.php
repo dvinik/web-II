@@ -102,9 +102,40 @@
 <script type="text/javascript">
 
 $(function(){
-  $("#add_button_product_list").on("click", function(){
-    $("#add_new_product_modal").modal("show");
-  });
+//	$("#add_new_product_modal").modal("show");
+	$("#add_button_product_list").on("click", function(){
+		$("#msg_product_name").hide();
+        $("#add_new_product_modal").modal("show");
+    });
+
+	$("#button_submit_create_new_product").on("click", function(){
+		$.ajax({
+			type:"POST",
+			url:"controller.php",
+			data:{
+				"action":"create_new_product",
+				"product_code": $("#product_code").val(),
+				"product_name": $("#product_name").val(),
+				"description" : $("#description").val(),
+				"standard_cost": $("#standard_cost").val(),
+				"list_price" : $("#list_price").val(),
+				"category" : $("#product_category").val()
+
+			},
+			success: function(data){
+				if(data == "0"){
+					$("#msg_product_name").show();
+				}else if(data == "1"){
+					$("#add_new_product_modal").modal("hide");
+					alert("Product " + $("#product_name").val() + " is created successfully!");
+					location.reload();
+				}else{
+					$("#add_new_product_modal").modal("hide");
+					alert("Create new product failed!");
+				}
+			}
+		});
+	})
 
 });
 
