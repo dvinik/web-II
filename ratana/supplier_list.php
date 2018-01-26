@@ -1,8 +1,6 @@
 <?php include_once('header.php'); ?>
-
 <?php include_once('config.php');?>
 <?php include_once('edit_supplier.php'); ?>
-<?php include_once('add_supplier_list.php'); ?>
 
 <style type="text/css">
 	.delete_supplier{
@@ -39,7 +37,8 @@
 				<span></span>
 			</div>
 			<div class="col-sm-3">
-			<button id="add_button_supplier_list">+Add new Supplier</button>
+<!--			<button id="add_button_supplier_list">+Add new Supplier</button>-->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewSupplierModal"> +Add New Supplier</button>
 			</div>
 			
 		</div>
@@ -103,7 +102,7 @@
 	</div>
 
 	<?php include_once('footer.php'); ?>
-	
+	<?php include_once( 'add_new_supplier_modal.php' ); ?>
 <script type="text/javascript">
 $(function(){
 	$(".delete_supplier").on('click',function(){
@@ -140,9 +139,9 @@ $(function(){
 		$("#edit_supplier_modal").modal("show");
 	});
 
-	$("#add_button_supplier_list").on("click", function(){
-		$("#add_supplier_modal").modal("show");
-	});
+//	$("#add_button_supplier_list").on("click", function(){
+//		$("#add_supplier_modal").modal("show");
+//	});
 
 });
 

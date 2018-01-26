@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
 <?php include('config.php'); ?>
-<?php include('add_supplier.php'); ?>
+<?php include( 'add_new_supplier_modal.php' ); ?>
 
 <div class="row" id="nav_second">
 	<div class="col-sm-2">
@@ -49,15 +49,6 @@
 	
 </div>
 
-	<?php include_once('footer.php'); ?>
-	
-
-
-
-
-
-
-	
 <?php include("footer.php"); ?>
 
 	

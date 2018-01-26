@@ -8,6 +8,8 @@
 		create_new_product();
 	}elseif($action == "delete_supplier"){
 		delete_supplier();
+	}elseif($action == "create_new_supplier"){
+		create_new_supplier();
 	}
 
 	function create_new_product_category(){
@@ -57,6 +59,31 @@
 			echo "YES";
 		}else{
 			echo "NO";
+		}
+	}
+	function create_new_supplier(){
+		global $link;
+		$supplier_name = $_POST['supplier_name'];
+		$email = $_POST['email'];
+		$phone_number = $_POST['phone'];
+		$fax = $_POST['fax'];
+		$address = $_POST['address'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$zipcode = $_POST['zipcode'];
+		$country = $_POST['country'];
+		$res = $link->query("SELECT * FROM ".TBL_SUPPLIERS." WHERE supplier_name = '$supplier_name'");
+		if($res->num_rows >= 1){
+			echo "0";
+		}else {
+			$sql = "INSERT INTO ".TBL_SUPPLIERS."(supplier_name, email, phone, fax, address, city, state, zipcode, country)
+					VALUES('$supplier_name', '$email','$phone_number','$fax','$address', '$city', '$state', '$zipcode', '$country')";
+			error_log($sql);
+			if($link->query($sql)){
+				echo "1";
+			}else{
+				echo "2";
+			}
 		}
 	}
 	if($link) $link->close();

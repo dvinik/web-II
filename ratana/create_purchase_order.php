@@ -1,6 +1,6 @@
-<?php include("header.php"); ?>
-<?php include('config.php'); ?>
-<?php include('add_supplier.php'); ?>
+<?php include_once("header.php"); ?>
+<?php include_once('config.php'); ?>
+
 
 <div class="row" id="nav_second">
 	<div class="col-sm-2">
@@ -35,7 +35,16 @@
 				<span><b>P.O Number</b></span>
 			</div>
 			<div class="col-sm-5">
-				<?php  echo uniqid();?>
+				<?php
+					$res = $link->query("SELECT po_id FROM ".TBL_PURCHASE_ORDERS." ORDER BY po_id DESC LIMIT 1");
+					$num = 1;
+					if($res && $res->num_rows > 0){
+						$row = $res->fetch_assoc();
+						$num = $row["po_id"] + 1;
+					}
+					$po_num = $num > 10 ? "N$num" : "N0$num";
+				?>
+				<label id="po_number"> <?php echo $po_num; ?></label>
 			</div>
 			<div class="col-sm-5">
 				<span><h2>Family Bakery Shop</h2></span>
@@ -59,12 +68,12 @@
 		</div>
 		<br>		
 <div class="container">
-		<div class="row" style="background-color: #f2f2f2">
-		<h3 id="h3"><b>I. Vender's information</b></h3>
+	<div class="row" style="background-color: #f2f2f2">
+		<h3 id="h3"><b>I. Supplier's information</b></h3>
 		<hr>
 		<div class="row">
 			<form action ="" method ="post">
-				<button id="creater_suppliers" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong"> +Add new Vender</button>
+				<button id="create_supplier" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewSupplierModal"> +Add New Supplier</button>
 				<div class="form-row">
 					<div class="form-group col-md-4">
 						<label for="supplier-select">Choose a supplier</label>
@@ -90,80 +99,52 @@
 
 			</form>
 		</div>
-
-				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLongTitle">Create New Supplier</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				      	<div class="form-group">
-	          				<label for="usr">Supplier ID</label>
-	          				<input type="text" class="form-control" id="vendorid" name="supplier_id">
-       					</div>
-       					<div class="form-group">
-	          				<label for="usr">Supplier Name</label>
-	          				<input type="text" class="form-control" id="vendorname" name="supplier_name">
-       					</div>
-       					<div class="form-group">
-	          				<label for="usr">Address:</label>
-	          				<input type="text" class="form-control" id="address" name="address">
-       					</div>
-       					<div class="form-group">
-	          				<label for="usr">Email:</label>
-	          				<input type="text" class="form-control" id="email" name="email">
-       					</div>
-       					<div class="form-group">
-	          				<label for="usr">Phone Number:</label>
-	          				<input type="text" class="form-control" id="phone" name="phone">
-       					</div>
-       					<div class="form-group">
-	          				<label for="usr">Zipcode:</label>
-	          				<input type="text" class="form-control" id="zipcode" name="zipcode">
-       					</div>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Save changes</button>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-
-			 <br>
-		</div>
-
+	</div>
 </div>	
 		
 	<div class="row" style="background-color: #f2f2f2">
 		<h3 id="h3"><b>II. Product's Detail</b></h3>
 	</div>	
 	<br>
-		<div class="row">
-			<table class="table table-striped">
-			<thead>
-			<tr>
-				<th scope="col">Product Name</th>
-				<th scope="col">Decription</th>
-				<th scope="col">Unit Cost</th>
-				<th scope="col">Quantity</th>
-				<th scope="col">Total Amount(Baht)</th>
-				<th scope="col">Edit</th>
-				<th scope="col">Delete</th>
-			</tr>
-			</thead>
-			<tbody>
-			
-			</tbody>
-		</table>
-            <button id="more" type="button" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i>
-                Add more items</button>
-	</div>
-	</div>	
+		<div id="items">
+        <div class="form-row">
+            <div class="form-group col-md-2">
+              <label>Product Name</label>
+              <input name="product_name[]" type="text" class="form-control"><span class="hint" id="product_name_feedback"></span>
+            </div>
+            <div class="form-group col-md-4">
+              <label>Description</label>
+              <input name="description[]" type="text" class="form-control"><span class="hint" id="description_feedback"></span>
+            </div>
+            <div class="form-group col-md-1">
+              <label>Unit Cost</label>
+              <input name="unite_cost[]" type="number" class="form-control"><span class="hint" id="unit_feedback"></span>
+            </div>
+            <div class="form-group col-md-2">
+              <label>Quantity</label>
+              <input name="quantity[]" type="number" class="form-control"><span class="hint" id="quantity_feedback"></span>
+            </div>
+            <div class="form-group col-md-2">
+              <label>Total Cost</label>
+              <input name="total_cost[]" type="number" class="form-control"><span class="hint" id="total_feedback"></span>
+            </div>
+              <div class="form-group col-md-1">
+              <label>Delete</label><br>
+              &nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i><span class="hint" id="delete_feedback"></span>
+            </div>
+        </div>
+      </div>
+        <button id="moreItems" type="button" class="btn btn-info">+Add more items</button>
+<!--         <script type="text/javascript">
+        	
+        $(function(){
+			$('#moreItems').click(function(event) {
+			$('#items').append('<div class="form-row"><div class="form-group col-md-2"><input name="product_name[]" type="text" class="form-control"></div><div class="form-group col-md-4"><input name="description[]" type="text" class="form-control"></div><div class="form-group col-md-1"><input name="unite_cost[]" type="number" class="form-control"></div><div class="form-group col-md-2"><input name="quantity[]" type="number" class="form-control"></div><div class="form-group col-md-2"><input name="total_cost[]" type="number" class="form-control"></div><div class="form-group col-md-1"></div>&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i>');
+			});
+		});
+
+         </script>
+ -->	</div>	
 </div>
 <br>
 	<div class="row">
@@ -186,6 +167,8 @@
 	</div>
 
 <?php include("footer.php"); ?>
+<?php include_once( 'add_new_supplier_modal.php' ); ?>
+
 <script type="text/javascript">
 $(function(){
    	$("#supplier_select").on("change", function() {
