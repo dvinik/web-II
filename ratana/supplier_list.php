@@ -22,11 +22,7 @@
 		</div>
 </div>
 <div class="row" style="background-color: #f2f2f2">
-	<!-- <div class="col-sm-6">
-		<h2 id="h2">Supplier List</h2>
-	</div> -->
 	
-
 </div>
 <hr>
 <div class="container">
@@ -90,7 +86,7 @@
 				echo "<td>{$zipcode}</td>";
 				echo "<td>{$country}</td>";
 				echo "<td><i supplier_id = '$supplier_id' supplier_name='$supplier_name' email ='$email' phone = '$phone' fax ='$fax' address ='$address' city = '$city' state ='$state' zipcode ='$zipcode' country ='$country' class=' edit_supplier fa fa-pencil fa-1x'></i></td>";
-				echo "<td><i a_id='$supplier_id' class='delete_supplier fa fa-trash' aria-hidden='true'></i> </td>";
+				echo "<td><i  a_id='$supplier_id' class='delete_supplier fa fa-trash '  aria-hidden='true'></i> </td>";
 
 				echo "</tr>";
 			}

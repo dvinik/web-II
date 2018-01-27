@@ -24,4 +24,10 @@
 	define("TBL_TRANSACTIONS","transactions");
 	
 
+	define("PO_STATUS_NEW", "New");
+	define("PO_STATUS_SUBMIT", "Submit");
+	define("PO_STATUS_RECEIVED", "Received");
+	define("PO_STATUS_CANCELLED", "Cancelled");
+
+
 ?>

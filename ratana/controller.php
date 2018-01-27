@@ -132,7 +132,31 @@
 		}
 	}
 
+	function save_purchase_order(){
+		global $link;
+		// save to purchase orders
+		// po_id, supplier_id, creation_date, po_status_id
+		$po_id = $_POST["po_id"];
+		$supplier_id = $_POST["supplier_id"];
 
+		$sql_po = "INSERT INTO ".TBL_PURCHASE_ORDERS." (po_id, supplier_id, po_creation_date) VALUES($po_id, $supplier_id, NOW())";
+		if($link->query($sql_po)){
+			// save to purchase order details
+			$products = json_decode($_POST["products"], true);
+			foreach($products as $product){
+				$product_id = $product["product_id"];
+				$unit_cost = $product["unit_cost"];
+				$quantity = $product["quantity"];
+
+				$sql_product = "INSERT INTO ".TBL_PURCHASE_ORDER_DETAILS." (po_id, product_id, qty, unit_cost, time_stamp)
+								VALUES($po_id, $product_id, $quantity, $unit_cost, NOW())";
+				$link->query($sql_product);
+			}
+		}else{
+			echo "0"; //failed
+		}
+
+	}
 
 
 

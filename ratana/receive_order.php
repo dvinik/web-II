@@ -17,15 +17,14 @@
 	<div class="col-sm-6">
 	<h2 id="h2">Receiving Form</h2>
 	</div>
-	<div class="col-sm-6">	
+	<!-- <div class="col-sm-6">	
 		<div class="right">
 			<ul class="nav nav-pills">
 			  <li role="presentation" class="active"><a href="#">Print</a></li>
-			  <li role="presentation"><a href="#">Save</a></li>
-			  <li role="presentation"><a href="#">Save and New</a></li>
+			  
 			</ul>
 		</div>
-	</div>
+	</div> -->
 
 </div>
 <hr>
@@ -90,17 +89,43 @@
                
 			</tbody>
 		</table>
+		<!-- <form action="" method="post">
+			<div id="items">
+				<div class="form-row">
+				<div class="form-group col-md-2">
+						<label>Product ID</label>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Product Name</label>
+					</div>
+					<div class="form-group col-md-4">
+						<label>Description</label>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Quantity Order</label>
+					</div>
+					<div class="form-group col-md-1">
+						<label>Quantity Received</label>
+					</div>
+					<div class="form-group col-md-2">
+						<label>Comment</label>
+					</div>
+				</div>
+			</div>
+		</form> -->
 	</div>
 	<br>
-	<!-- <div class="row">
-		<div class="col-sm-6"></div>
-			<div class="col-sm-6"><b>Total Amount:</b>
-		 		<input type="number" name="total"></ins>
-		 			<div class="line"><br></div> 
-			 </div>
-		<br>
-	</div> -->
 	</div>
 </div>
+
+<div class="row">
+		<div class="col-sm-10">
+		</div>
+		<div class="col-sm-2">
+			<ul class="nav nav-pills">
+				<li role="presentation"> <a id="id-po-save-new" class="btn btn-primary" id="save_new">Received</a></li>
+			</ul>
+		</div>
+	</div>
 
 <?php include("footer.php"); ?>

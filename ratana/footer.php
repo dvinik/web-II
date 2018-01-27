@@ -7,15 +7,15 @@
 		</div>
 	 </div> -->
 	 	<br><br><br><br><br>
-		 <footer class="sticky-footer">
-	      <div class="container" style="background-color: #1E90FF;">
-	        <div class="text-center">
-	        	&copy;2017 Stamford International University - WebII DatabaseII & Accounting
-	          	<!-- <div ></div> -->
-				<!-- <div >WebII DatabaseII & Accounting</div> -->
-	        </div>
-	      </div>
-	    </footer>
+		<footer class="sticky-footer">
+			<div class="container" style="background-color: #1E90FF;">
+				<div class="text-center">
+					&copy;2017 Stamford International University - WebII DatabaseII & Accounting
+					<!-- <div ></div> -->
+					<!-- <div >WebII DatabaseII & Accounting</div> -->
+				</div>
+			</div>
+		</footer>
 	</div>
 	<!-- <script src="js/b18009260a.js"></script> -->
 	<script src="js/jquery.min.js"></script>
@@ -30,7 +30,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-<!--     <script src="js/sb-admin-charts.min.js"></script>-->    
+<!--     <script src="js/sb-admin-charts.min.js"></script>-->
 	<script src="vendor/datatables/jquery.dataTables.js"></script>
     <!-- <script src="vendor/datatables/dataTables.bootstrap4.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

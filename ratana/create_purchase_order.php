@@ -34,15 +34,17 @@
 			</div>
 			<div class="col-sm-5">
 				<?php
-				$res = $link->query("SELECT po_id FROM ".TBL_PURCHASE_ORDERS." ORDER BY po_id DESC LIMIT 1");
+				$res = $link->query("SHOW TABLE STATUS LIKE '".TBL_PURCHASE_ORDERS."'");
 				$num = 1;
 				if($res && $res->num_rows > 0){
 					$row = $res->fetch_assoc();
-					$num = $row["po_id"] + 1;
+					$num = $row["Auto_increment"];
 				}
-				$po_num = $num > 10 ? "N$num" : "N0$num";
+				$po_num = $num > 10 ? "$num" : "0$num";
+
 				?>
-				<label id="po_number"> <?php echo $po_num; ?></label>
+
+				<?php echo "<label id='id-po-number' val='$num' > $po_num </label>"; ?>
 			</div>
 			<div class="col-sm-5">
 				<span><h2>Family Bakery Shop</h2></span>
@@ -74,7 +76,7 @@
 						<div class="form-group col-md-5">
 							<label for="supplier-select">Choose a supplier</label>
 							<select name="supplier" class="form-control" id="supplier_select">
-								<option selected="true" disabled="disabled">Choose Supplier</option>
+								<option selected="true" disabled="disabled" value="null">Choose Supplier</option>
 								<?php
 								$sql = 'SELECT * from suppliers order by supplier_id ASC';
 								$retval = mysqli_query($link, $sql);
@@ -107,18 +109,15 @@
 					<div class="form-group col-md-4">
 						<label>Description</label>
 					</div>
-					<div class="form-group col-md-1">
+					<div class="form-group col-md-2">
 						<label>Unit Cost</label>
 					</div>
-					<div class="form-group col-md-2">
+					<div class="form-group col-md-1">
 						<label>Quantity</label>
 					</div>
 					<div class="form-group col-md-2">
 						<label>Total Cost</label>
 					</div>
-<!--					<div class="form-group col-md-1">-->
-<!--						<label>Delete</label><br>-->
-<!--					</div>-->
 				</div>
 			</div>
 		</form>
@@ -140,7 +139,6 @@
 			<ul class="nav nav-pills">
 				<li role="presentation"> <a href="purchase.php" class="btn btn-info">Close</a></li> &emsp;&emsp;&emsp;
 				<li role="presentation"> <a id="id-po-save" class="btn btn-warning">Save</a></li> &emsp;
-				<li role="presentation"> <a id="id-po-save-new" class="btn btn-primary" id="save_new">Save and New</a></li>
 			</ul>
 		</div>
 	</div>
@@ -163,22 +161,22 @@
 			$product_item = '' +
 				'<div class="form-row"> \
 					<div class="form-group col-md-2"> \
-						<select name="product_name" id="select_product_name" class="form-control class_select_product">\
-							<option selected="true" disabled="disabled">Choose Product</option>\
+						<select class="form-control class_select_product">\
+							<option selected="true" disabled="disabled" value="null">Choose Product</option>\
 							'+product_options+' \
 						</select>\
 					</div> \
 					<div class="form-group col-md-4"> \
 						<input name="description" type="text" class="form-control description" readonly> \
 					</div> \
-					<div class="form-group col-md-1"> \
-						<input name="unite_cost[]" type="number" class="form-control unit_cost" readonly> \
-					</div> \
 					<div class="form-group col-md-2"> \
+						<input name="unite_cost[]" type="text" class="form-control unit_cost" readonly> \
+					</div> \
+					<div class="form-group col-md-1"> \
 						<input name="quantity[]" type="number" min="1" value="1" class="form-control quantity"><span class="hint" id="quantity_feedback"></span> \
 						</div> \
 						<div class="form-group col-md-2"> \
-					<input name="total_cost[]" type="number" class="form-control total_cost" readonly> \
+					<input name="total_cost[]" type="text" class="form-control total_cost" readonly> \
 					</div> \
 					<div class="form-group col-md-1"> \
 						&nbsp;&nbsp;&nbsp;<i class="fa fa-trash-o delete_product_item" style="color: brown;" aria-hidden="true"></i> \
@@ -196,7 +194,6 @@
 				$("#shipping").html(data);
 			});
 		});
-
 		$("#moreItems").on("click", function(){
 			addOneMoreProductItem();
 		});
@@ -245,7 +242,50 @@
 			$(this).parent().parent().remove();
 			updateTotalAmount();
 		});
-
+		function save_purchase_order(new_order = false){
+			var po_id = $("#id-po-number").attr("val");
+			var supplier_id = $("#supplier_select option:selected").val();
+			if(supplier_id && supplier_id != "null"){
+				var products = [];
+				$("#items").children().each(function(index, form_row){
+					var product_id = $(form_row).find(".class_select_product option:selected").val();
+					if(product_id && product_id != "null"){
+						var unit_cost = $(form_row).find(".unit_cost").val();
+						var quantity = $(form_row).find(".quantity").val();
+						var item = {"product_id": product_id, "unit_cost": unit_cost, "quantity": quantity};
+						products.push(item);
+					}
+				});
+				if(products.length == 0){
+					alert("You need to select at least on item.");
+				}else{
+//				alert(products.length);
+					$.ajax({
+						type: "POST",
+						url: "controller.php",
+						data:{
+							"action": "save_purchase_order",
+							"po_id": po_id,
+							"supplier_id": supplier_id,
+							"products": JSON.stringify(products)
+						},
+						success: function(data){
+							if(data == "0"){
+								alert("Save failed!");
+							}else{
+								alert("Save successful!");
+								window.location.href = "purchase.php";
+							}
+						}
+					});
+				}
+			}else{
+				alert("You have to select supplier");
+			}
+		}
+		$("#id-po-save").on("click", function(){
+			save_purchase_order();
+		});
 
 	});
 </script>
