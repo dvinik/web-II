@@ -6,7 +6,7 @@
   <div class="col-sm-10" >
     <ul class="nav nav-pills">
       
-      <li role="presentation"><a href="employee.php" class="nav_text">Employees</a></li>
+      <li role="presentation"><a href="employee.php" class="nav_text active" menu="Employee">Employees</a></li>
       <li role="presentation"><a href="company_information.php" class="nav_text">Company Information</a></li>
     </ul>
     

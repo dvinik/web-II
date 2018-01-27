@@ -1,7 +1,6 @@
 <?php
 	include("header.php");
 	include_once("config.php");
-	include_once("add_new_product_category_modal.php");
 ?>
 
 <!--<link rel="stylesheet" type="text/css" href="style.css">-->
@@ -10,7 +9,7 @@
     <div class="col-sm-10" >
         <ul class="nav nav-pills">
             <li role="presentation"><a href="inventory.php" class="nav_text">Product</a></li>
-            <li role="presentation"><a href="product_categories.php" class="nav_text active">Product Category</a></li>
+            <li role="presentation"><a href="product_categories.php" class="nav_text active" menu="Inventory">Product Category</a></li>
         </ul>
     </div>
 </div>
@@ -35,7 +34,7 @@
                 <span><b>Product Category</b></span>
             </div>
 	        <div class="col-sm-3">
-	            <button id="button_add_new_product_category">+Add New Category</button>
+	            <button data-toggle="modal" data-target="#add_new_product_category_modal">+Add New Category</button>
 	        </div>
         </div><br>
         <div class="card mb-3">
@@ -66,36 +65,4 @@
     </div>
 </div>
 <?php include("footer.php"); ?>
-
-<script type="text/javascript">
-$(function(){
-  // $("#add_new_product_category_modal").modal("show");
-	$("#button_add_new_product_category").on("click", function(){
-	    $("#add_new_product_category_modal").modal("show");
-	});
-	$("#button_sumit_category").on("click", function(){
-		var category_name = $("#category_name").val();
-		$.ajax({
-			type:"POST",
-		    url:"controller.php",
-			data:{
-		        "action":"create_new_product_category",
-		        "category_name" : category_name
-		    },
-		    success: function(data){
-		        if(data == "0"){
-		            alert("Category name is already exist!");
-		        }else if(data == "1"){
-		            $("#add_new_product_category_modal").modal("hide");
-		            alert(category_name + " is created successfully!");
-		            location.reload();
-			    }else{
-			        $("#add_new_product_category_modal").modal("hide");
-			        alert("Create new category failed!");
-			    }
-		    }
-		});
-	});
-});
-
-</script>
+<?php include_once("add_new_product_category_modal.php"); ?>

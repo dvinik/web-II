@@ -8,7 +8,7 @@
       
       <li role="presentation"><a href="employee.php" class="nav_text">Employees</a></li>
       <!-- <li role="presentation"><a href="#" class="nav_text"></a></li> -->
-      <li role="presentation"><a href="company_information.php" class="nav_text">Company Information</a></li>
+      <li role="presentation"><a href="company_information.php" class="nav_text active" menu="Employee">Company Information</a></li>
        
     
     </ul>

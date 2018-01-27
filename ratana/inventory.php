@@ -7,8 +7,8 @@
 		<div class="col-sm-2"></div>
 	   	<div class="col-sm-10" >
     	<ul class="nav nav-pills">
-           <li role="presentation"><a href="inventory.php" class="nav_text active">Product</a></li>
-           <li role="presentation"><a href="product_categories.php" class="nav_text">Product Category</a></li>
+           <li role="presentation"><a href="inventory.php" class="nav_text active">Products</a></li>
+           <li role="presentation"><a href="product_categories.php" class="nav_text">Products Category</a></li>
      </ul>
 	 </div>
 	</div>

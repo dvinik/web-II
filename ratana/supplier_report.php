@@ -1,4 +1,4 @@
-	<?php include("header.php"); ?>
+<?php include("header.php"); ?>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<div class="row" id="nav_second">
@@ -9,7 +9,7 @@
 	           <li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
 	           <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
 	           <li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
-	          <li role="presentation"><a href="supplier_report.php" class="nav_text active">Suppliers Reports</a></li>
+	          <li role="presentation"><a href="supplier_report.php" class="nav_text active" menu="Purchase">Suppliers Reports</a></li>
      		</ul>
 		</div>
 	</div>

@@ -1,16 +1,20 @@
 <?php
 	include_once("config.php");
 
-	$action = $_POST["action"];
-	if($action == "create_new_product_category"){
-		create_new_product_category();
-	}elseif($action == "create_new_product"){
-		create_new_product();
-	}elseif($action == "delete_supplier"){
-		delete_supplier();
-	}elseif($action == "create_new_supplier"){
-		create_new_supplier();
+	if(isset($_POST["action"])){
+		$action = $_POST["action"];
+		$action();
 	}
+
+//	if($action == "create_new_product_category"){
+//		create_new_product_category();
+//	}elseif($action == "create_new_product"){
+//		create_new_product();
+//	}elseif($action == "delete_supplier"){
+//		delete_supplier();
+//	}elseif($action == "create_new_supplier"){
+//		create_new_supplier();
+//	}
 
 	function create_new_product_category(){
 		global $link;
@@ -72,19 +76,68 @@
 		$state = $_POST['state'];
 		$zipcode = $_POST['zipcode'];
 		$country = $_POST['country'];
-		$res = $link->query("SELECT * FROM ".TBL_SUPPLIERS." WHERE supplier_name = '$supplier_name'");
-		if($res->num_rows >= 1){
-			echo "0";
-		}else {
-			$sql = "INSERT INTO ".TBL_SUPPLIERS."(supplier_name, email, phone, fax, address, city, state, zipcode, country)
-					VALUES('$supplier_name', '$email','$phone_number','$fax','$address', '$city', '$state', '$zipcode', '$country')";
-			error_log($sql);
-			if($link->query($sql)){
-				echo "1";
-			}else{
-				echo "2";
-			}
+//		$res = $link->query("SELECT * FROM ".TBL_SUPPLIERS." WHERE supplier_name = '$supplier_name'");
+//		if($res->num_rows >= 1){
+//			echo "0";
+//		}else {
+		$sql = "INSERT INTO ".TBL_SUPPLIERS."(supplier_name, email, phone, fax, address, city, state, zipcode, country)
+				VALUES('$supplier_name', '$email','$phone_number','$fax','$address', '$city', '$state', '$zipcode', '$country')";
+		if($link->query($sql)){
+			echo "1";
+		}else{
+			echo "2";
+		}
+//		}
+	}
+	function edit_supplier(){
+		global $link;
+		$supplier_id = $_POST['supplier_id'];
+		$supplier_name = $_POST['supplier_name'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$fax = $_POST['fax'];
+		$address = $_POST['address'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$zipcode = $_POST['zipcode'];
+		$country = $_POST['country'];
+		$sql = "UPDATE ".TBL_SUPPLIERS." SET supplier_name ='$supplier_name',  email ='$email', phone = '$phone',
+				fax = '$fax', address ='$address', city = '$city', state ='$state', zipcode ='$zipcode', country ='$country'
+                WHERE supplier_id = '$supplier_id'";
+		If($link->query($sql)){
+			echo "1";
+		}else{
+			echo "2";
 		}
 	}
+	function get_supplier_address(){
+		global $link;
+		$id = $_POST["id"];
+		$res = $link->query("SELECT * FROM suppliers WHERE supplier_id = $id");
+		if($res->num_rows > 0){
+			$item = $res->fetch_assoc();
+			echo "{$item['address']} {$item['phone']} {$item['email']} {$item['fax']}";
+		}
+	}
+
+	function get_product_info(){
+		global $link;
+		$product_id = $_POST["product_id"];
+		$res = $link->query("SELECT * FROM ".TBL_PRODUCTS." WHERE product_id = $product_id");
+		if($res && $res->num_rows > 0){
+			$row = $res->fetch_assoc();
+			echo json_encode($row);
+		}else{
+			echo "0";
+		}
+	}
+
+
+
+
+
+
+
+
 	if($link) $link->close();
 ?>

@@ -43,11 +43,11 @@
 				<ul class="nav nav-pills">
 				 
 				  <li role="presentation"><a href="index.php" class="nav_text top_menu" menu="Dashboard">Dashboard</a></li>
-				  <li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Expense">Purchase</a></li>
-				  <li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Revenue">Sales</a></li>
-				  <li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Report">Inventory</a></li>
-				  <li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Setting">Report</a></li>
-				  <li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Setting">My Company</a></li>
+				  <li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Purchase">Purchase</a></li>
+				  <li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Sale">Sales</a></li>
+				  <li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Inventory">Inventory</a></li>
+				  <li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Report">Report</a></li>
+				  <li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Employee">My Company</a></li>
 				  	<div class="user_name">
 				  		<label style="color:white; margin-top: 10px;"></label>
 						  <?php 

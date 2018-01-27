@@ -22,3 +22,31 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+	$(function(){
+		$("#button_sumit_category").on("click", function(){
+			var category_name = $("#category_name").val();
+			$.ajax({
+				type:"POST",
+				url:"controller.php",
+				data:{
+					"action":"create_new_product_category",
+					"category_name" : category_name
+				},
+				success: function(data){
+					if(data == "0"){
+						alert("Category name is already exist!");
+					}else if(data == "1"){
+						$("#add_new_product_category_modal").modal("hide");
+						alert(category_name + " is created successfully!");
+						location.reload();
+					}else{
+						$("#add_new_product_category_modal").modal("hide");
+						alert("Create new category failed!");
+					}
+				}
+			});
+		});
+	});
+
+</script>

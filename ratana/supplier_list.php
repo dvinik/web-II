@@ -1,6 +1,5 @@
 <?php include_once('header.php'); ?>
 <?php include_once('config.php');?>
-<?php include_once('edit_supplier.php'); ?>
 
 <style type="text/css">
 	.delete_supplier{
@@ -17,7 +16,7 @@
 		 	 <ul class="nav nav-pills">
 	           <li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
 	           <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
-	           <li role="presentation"><a href="supplier_list.php" class="nav_text active">Supplier List</a></li>
+	           <li role="presentation"><a href="supplier_list.php" class="nav_text active" menu="Purchase">Supplier List</a></li>
           		<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
      		</ul>
 		</div>
@@ -101,8 +100,11 @@
 		</table>
 	</div>
 
-	<?php include_once('footer.php'); ?>
-	<?php include_once( 'add_new_supplier_modal.php' ); ?>
+	<?php
+		include_once('footer.php');
+		include_once('add_new_supplier_modal.php');
+		include_once('edit_supplier_modal.php');
+	?>
 <script type="text/javascript">
 $(function(){
 	$(".delete_supplier").on('click',function(){
@@ -126,22 +128,18 @@ $(function(){
 		});
 	});
 	$(".edit_supplier").on("click",function(){
-		$("#supplier_id").val($(this).attr("supplier_id"));
-		$("#supplier_name").val($(this).attr("supplier_name"));
-		$("#email").val($(this).attr("email"));
-		$("#phone").val($(this).attr("phone"));
-		$("#fax").val($(this).attr("fax"));
-		$("#address").val($(this).attr("address"));
-		$("#city").val($(this).attr("city"));
-		$("#state").val($(this).attr("state"));
-		$("#zipcode").val($(this).attr("zipcode"));
-		$("#country").val($(this).attr("country"));
+		$("#id_modal_edit_supplier").val($(this).attr("supplier_id"));
+		$("#name_modal_edit_supplier").val($(this).attr("supplier_name"));
+		$("#email_modal_edit_supplier").val($(this).attr("email"));
+		$("#phone_modal_edit_supplier").val($(this).attr("phone"));
+		$("#fax_modal_edit_supplier").val($(this).attr("fax"));
+		$("#address_modal_edit_supplier").val($(this).attr("address"));
+		$("#city_modal_edit_supplier").val($(this).attr("city"));
+		$("#state_modal_edit_supplier").val($(this).attr("state"));
+		$("#zipcode_modal_edit_supplier").val($(this).attr("zipcode"));
+		$("#country_modal_edit_supplier").val($(this).attr("country"));
 		$("#edit_supplier_modal").modal("show");
 	});
-
-//	$("#add_button_supplier_list").on("click", function(){
-//		$("#add_supplier_modal").modal("show");
-//	});
 
 });
 
