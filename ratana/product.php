@@ -7,7 +7,7 @@
 		<div class="col-sm-2"></div>
 	   	<div class="col-sm-10" >
     	<ul class="nav nav-pills">
-           <li role="presentation"><a href="inventory.php" class="nav_text active">Products</a></li>
+           <li role="presentation"><a href="product.php" class="nav_text active">Products</a></li>
            <li role="presentation"><a href="product_categories.php" class="nav_text">Products Category</a></li>
      </ul>
 	 </div>
@@ -50,6 +50,7 @@
                 <th width="5%">Standard Cost</th>
                 <th width="10%">List Price  </th>
                 <th width="10%">Product Category </th>
+                 <th width="10%">In Stock </th>
               </tr>
           </thead>
           <tbody>

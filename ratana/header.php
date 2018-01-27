@@ -53,7 +53,7 @@ if (empty($_SESSION['user'])) {
 				<li role="presentation"><a href="index.php" class="nav_text top_menu" menu="Dashboard">Dashboard</a></li>
 				<li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Purchase">Purchase</a></li>
 				<li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Sale">Sales</a></li>
-				<li role="presentation"><a href="inventory.php" class="nav_text top_menu" menu="Inventory">Inventory</a></li>
+				<li role="presentation"><a href="product.php" class="nav_text top_menu" menu="Inventory">Inventory</a></li>
 				<li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Report">Report</a></li>
 				<li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Employee">My Company</a></li>
 			</ul>

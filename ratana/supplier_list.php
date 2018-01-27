@@ -13,12 +13,13 @@
 	<div class="col-sm-2">
 	</div>
 		<div class="col-sm-10" >
-		 	 <ul class="nav nav-pills">
-	           <li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
-	           <li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
-	           <li role="presentation"><a href="supplier_list.php" class="nav_text active" menu="Purchase">Supplier List</a></li>
-          		<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
-     		</ul>
+			 <ul class="nav nav-pills">
+				<li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
+				<li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
+				<li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
+				<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
+				<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
+	     	</ul>
 		</div>
 </div>
 <div class="row" style="background-color: #f2f2f2">
@@ -26,19 +27,18 @@
 </div>
 <hr>
 <div class="container">
-	<div class="jumbotron mt-4">
+	<!-- <div class="jumbotron mt-4"> -->
 		<div class="row">
 			<div class="col-sm-9">
-				<span></span>
+				<h3 id="h2">General Information</h3>
 			</div>
 			<div class="col-sm-3">
-<!--			<button id="add_button_supplier_list">+Add new Supplier</button>-->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewSupplierModal"> +Add New Supplier</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewSupplierModal"> <i class="fa fa-plus" aria-hidden="true"></i> <b>Add New Supplier</b></button>
 			</div>
-			
 		</div>
+		<br>
 		
-		<h5>1. General Information</h5>
+		
 		<table class="table table-striped">
 			<thead>
 			<tr>
@@ -94,7 +94,7 @@
 			?>
 			</tbody>
 		</table>
-	</div>
+	<!-- </div> -->
 
 	<?php
 		include_once('footer.php');

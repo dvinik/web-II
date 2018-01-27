@@ -131,7 +131,37 @@
 			echo "0";
 		}
 	}
-
+	function submit_purchase_order(){
+		global $link;
+		$po_id = $_POST["po_id"];
+		$sql = "UPDATE ".TBL_PURCHASE_ORDERS." SET po_status_id = ".PO_STATUS_SUBMITTED." WHERE po_id = $po_id";
+		if($link->query($sql)){
+			echo "1";
+		}else{
+			echo "0";
+		}
+	}
+	function cancel_purchase_order(){
+		global $link;
+		$po_id = $_POST["po_id"];
+		$sql = "UPDATE ".TBL_PURCHASE_ORDERS." SET po_status_id = ".PO_STATUS_CANCELLED." WHERE po_id = $po_id";
+		if($link->query($sql)){
+			echo "1";
+		}else{
+			echo "0";
+		}
+	}
+	function delete_purchase_order(){
+		global $link;
+		$po_id = $_POST["po_id"];
+		$sql1 = "DELETE FROM ".TBL_PURCHASE_ORDER_DETAILS." WHERE po_id = $po_id";
+		$sql2 = "DELETE FROM ".TBL_PURCHASE_ORDERS." WHERE po_id = $po_id";
+		if($link->query($sql1) && $link->query($sql2)){
+			echo "1";
+		}else{
+			echo "0";
+		}
+	}
 	function save_purchase_order(){
 		global $link;
 		// save to purchase orders
@@ -139,7 +169,8 @@
 		$po_id = $_POST["po_id"];
 		$supplier_id = $_POST["supplier_id"];
 
-		$sql_po = "INSERT INTO ".TBL_PURCHASE_ORDERS." (po_id, supplier_id, po_creation_date) VALUES($po_id, $supplier_id, NOW())";
+		$sql_po = "INSERT INTO ".TBL_PURCHASE_ORDERS." (po_id, supplier_id, po_creation_date, po_status_id)
+					VALUES($po_id, $supplier_id, NOW(), ".PO_STATUS_NEW.")";
 		if($link->query($sql_po)){
 			// save to purchase order details
 			$products = json_decode($_POST["products"], true);
@@ -155,12 +186,52 @@
 		}else{
 			echo "0"; //failed
 		}
+	}
+	function update_purchase_order(){
+		global $link;
+		$po_id = $_POST["po_id"];
+		$supplier_id = $_POST["supplier_id"];
+		$sql_po = "UPDATE ".TBL_PURCHASE_ORDERS." SET supplier_id = $supplier_id WHERE po_id = $po_id";
+		if($link->query($sql_po)){
+			$products = json_decode($_POST["products"], true);
+			// delete deleted items
+			$pod_ids = [];
+			foreach($products as $product){
+				if(isset($product["pod_id"])) $pod_ids[] = $product["pod_id"];
+			}
+			$check_delete_query = "SELECT * FROM ".TBL_PURCHASE_ORDER_DETAILS." WHERE po_id = $po_id";
+			$check_delete_res = $link->query($check_delete_query);
+			if($check_delete_res && $check_delete_res->num_rows > count($pod_ids)){ // there are items were deleted
+				$delete_items_query = "DELETE FROM ".TBL_PURCHASE_ORDER_DETAILS." WHERE po_id = $po_id AND
+									  id NOT IN (".implode(",", $pod_ids).")";
+				$link->query($delete_items_query);
+			}
+
+			//update items
+			foreach($products as $product){
+				$product_id = $product["product_id"];
+				$unit_cost = $product["unit_cost"];
+				$quantity = $product["quantity"];
+				if(isset($product["pod_id"])){
+					$pod_id = $product["pod_id"];
+					$pod_ids[] = $pod_id;
+					$sql_product = "UPDATE ".TBL_PURCHASE_ORDER_DETAILS." SET product_id = $product_id,
+									qty = $quantity, unit_cost = $unit_cost WHERE id = $pod_id";
+					$link->query($sql_product);
+				}else{
+					$sql_product = "INSERT INTO ".TBL_PURCHASE_ORDER_DETAILS." (po_id, product_id, qty, unit_cost, time_stamp)
+									VALUES($po_id, $product_id, $quantity, $unit_cost, NOW())";
+					$link->query($sql_product);
+				}
+			}
+
+		}else{
+			echo "0"; //failed
+		}
+	}
+	function confirm_purchase_order_received(){
 
 	}
-
-
-
-
 
 
 	if($link) $link->close();

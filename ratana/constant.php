@@ -23,11 +23,10 @@
 	define("TBL_SUPPLIERS", "suppliers");
 	define("TBL_TRANSACTIONS","transactions");
 	
-
-	define("PO_STATUS_NEW", "New");
-	define("PO_STATUS_SUBMIT", "Submit");
-	define("PO_STATUS_RECEIVED", "Received");
-	define("PO_STATUS_CANCELLED", "Cancelled");
-
+	define("PO_STATUS_NEW", 1);
+	define("PO_STATUS_SUBMITTED", 2);
+	define("PO_STATUS_RECEIVED", 3);
+	define("PO_STATUS_CANCELLED", 4);
+	$PO_STATUS = ["1"=>"New", "2"=>"Submitted", "3"=>"Received", "4"=>"Cancelled"];
 
 ?>
