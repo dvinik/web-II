@@ -6,7 +6,6 @@
 	<div class="col-sm-10">
 		<ul class="nav nav-pills">
 			<li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
-			<li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
 			<li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
 			<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
 			<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
@@ -67,7 +66,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<h3 id="h3"><b>I. Supplier's information</b></h3>
+			<h3 id="h3"><b>Supplier Information</b></h3>
 		</div>
 		<br>
 		<div class="row">
@@ -94,7 +93,7 @@
 		</div>
 		<br><br>
 		<div class="row">
-			<h3 id="h3"><b>II. Product's Detail</b></h3>
+			<h3 id="h3"><b>Product Detail</b></h3>
 		</div>
 		<br>
 		<div id="items">

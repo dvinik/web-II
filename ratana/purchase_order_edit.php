@@ -17,7 +17,6 @@
 	<div class="col-sm-10">
 		<ul class="nav nav-pills">
 			<li role="presentation"><a href="purchase.php" class="nav_text active" menu="Purchase">Purchase Order </a></li>
-			<li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
 			<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
 			<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
 		</ul>
@@ -69,7 +68,7 @@
 		</div>
 		<br>
 		<div class="row">
-			<h3 id="h3"><b>I. Supplier's information</b></h3>
+			<h3 id="h3"><b>Supplier Information</b></h3>
 		</div>
 		<br>
 		<div class="row">
@@ -101,7 +100,7 @@
 		</div>
 		<br><br>
 		<div class="row">
-			<h3 id="h3"><b>II. Product's Detail</b></h3>
+			<h3 id="h3"><b>Product Detail</b></h3>
 		</div>
 		<br>
 		<div id="items">
@@ -142,9 +141,9 @@
 					$product_options = "";
 					foreach($products as $product){
 						if($product["product_id"] == $row["product_id"]){
-							$product_options = $product_options . "<option selected disabled value=\"{$product["product_id"]}\"> {$product["product_name"]} </option>";
+							$product_options = $product_options . "<option selected value=\"{$product["product_id"]}\"> {$product["product_name"]} </option>";
 						}else{
-							$product_options = $product_options . "<option disabled value=\"{$product["product_id"]}\"> {$product["product_name"]} </option>";
+							$product_options = $product_options . "<option value=\"{$product["product_id"]}\"> {$product["product_name"]} </option>";
 						}
 					}
 					$description = $row["description"];

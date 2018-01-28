@@ -6,16 +6,6 @@
 		$action();
 	}
 
-//	if($action == "create_new_product_category"){
-//		create_new_product_category();
-//	}elseif($action == "create_new_product"){
-//		create_new_product();
-//	}elseif($action == "delete_supplier"){
-//		delete_supplier();
-//	}elseif($action == "create_new_supplier"){
-//		create_new_supplier();
-//	}
-
 	function create_new_product_category(){
 		global $link;
 		$name = $_POST["category_name"];
@@ -230,7 +220,24 @@
 		}
 	}
 	function confirm_purchase_order_received(){
-
+		global $link;
+		$po_id = $_POST["po_id"];
+		$products = json_decode($_POST["products"], true);
+		//update purchase order status to received
+		$sql_update_status = "UPDATE ".TBL_PURCHASE_ORDERS." SET po_status_id = ".PO_STATUS_RECEIVED." WHERE po_id = $po_id";
+		if($link->query($sql_update_status)){
+			//add purchase items to inventory transaction
+			foreach($products as $product){
+				$product_id = $product["product_id"];
+				$quantity = $product["receive_quantity"];
+				$sql_add_inventory_transaction = "INSERT INTO ".TBL_INVENTORY_TRANSACTIONS.
+				                                 " (ITX_Created_Date, ITX_Modified_Date, Product_ID, QTY, PO_ID) ".
+				                                 " VALUES(NOW(), NOW(), $product_id, $quantity, $po_id)";
+				$link->query($sql_add_inventory_transaction);
+			}
+		}else{
+			echo "0";
+		}
 	}
 
 

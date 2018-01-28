@@ -10,7 +10,6 @@
 	<div class="col-sm-10" >
 		<ul class="nav nav-pills">
 			<li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
-			<li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
 			<li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
 			<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
 			<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
@@ -47,7 +46,6 @@
 			<?php
 				$sql = "SELECT po.*, s.supplier_name  FROM ".TBL_PURCHASE_ORDERS." AS po
 						INNER JOIN ".TBL_SUPPLIERS." AS s ON s.supplier_id = po.supplier_id
-
 						ORDER BY po.po_id DESC";
 				$res = $link->query($sql);
 				if($res->num_rows > 0){
@@ -71,6 +69,8 @@
 								     "<button class='btn btn-danger po-class-cancel'>Cancel</button>";
 							}elseif($status == PO_STATUS_CANCELLED){
 								echo "<button class='btn btn-info po-class-view'>View</button>";
+							}elseif($status == PO_STATUS_RECEIVED){
+								echo "<button class='btn btn-info po-class-receive-view'>View</button>";
 							}
 						echo "</td>";
 						echo "</tr>";
@@ -87,59 +87,65 @@
 <script type="text/javascript">
 $(function(){
 	$(".po-class-submit").on("click", function(){
-		// change status to submit
-		var po_id = $(this).parent().attr("po_id");
-		$.ajax({
-			type:"POST",
-			url:"controller.php",
-			data:{
-				"action": "submit_purchase_order",
-				"po_id": po_id
-			},
-			success: function(data){
-				if(data == "0"){
-					alert("Submit purchase order failed!");
-				}else{
-					location.reload();
+		if(confirm("Are you sure you want to submit?")){
+			// change status to submit
+			var po_id = $(this).parent().attr("po_id");
+			$.ajax({
+				type:"POST",
+				url:"controller.php",
+				data:{
+					"action": "submit_purchase_order",
+					"po_id": po_id
+				},
+				success: function(data){
+					if(data == "0"){
+						alert("Submit purchase order failed!");
+					}else{
+						location.reload();
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	$(".po-class-cancel").on("click", function(){
-		var po_id = $(this).parent().attr("po_id");
-		$.ajax({
-			type:"POST",
-			url:"controller.php",
-			data:{
-				"action": "cancel_purchase_order",
-				"po_id": po_id
-			},
-			success: function(data){
-				if(data == "0"){
-					alert("Cancel purchase order failed!");
-				}else{
-					location.reload();
+		if(confirm("Are you sure you want to cancel this purchase order?")){
+			var po_id = $(this).parent().attr("po_id");
+			$.ajax({
+				type:"POST",
+				url:"controller.php",
+				data:{
+					"action": "cancel_purchase_order",
+					"po_id": po_id
+				},
+				success: function(data){
+					if(data == "0"){
+						alert("Cancel purchase order failed!");
+					}else{
+						location.reload();
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	$(".po-class-delete").on("click", function(){
-		var po_id = $(this).parent().attr("po_id");
-		$.ajax({
-			type:"POST",
-			url:"controller.php",
-			data:{
-				"action": "delete_purchase_order",
-				"po_id": po_id
-			},
-			success: function(data){
-				if(data == "0"){
-					alert("Delete purchase order failed!");
-				}else{
-					location.reload();
+		if(confirm("Are you sure you want to delete?")){
+			var po_id = $(this).parent().attr("po_id");
+			$.ajax({
+				type:"POST",
+				url:"controller.php",
+				data:{
+					"action": "delete_purchase_order",
+					"po_id": po_id
+				},
+				success: function(data){
+					if(data == "0"){
+						alert("Delete purchase order failed!");
+					}else{
+						location.reload();
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	$(".po-class-view").on("click", function(){
 		var po_id = $(this).parent().attr("po_id");
@@ -153,6 +159,10 @@ $(function(){
 	$(".po-class-receive").on("click", function(){
 		var po_id = $(this).parent().attr("po_id");
 		window.location.href = "purchase_order_receive.php?po_id="+po_id;
+	});
+	$(".po-class-receive-view").on("click", function(){
+		var po_id = $(this).parent().attr("po_id");
+		window.location.href = "purchase_order_receive_view.php?po_id="+po_id;
 	});
 });
 </script>

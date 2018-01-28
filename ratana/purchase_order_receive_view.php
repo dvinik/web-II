@@ -24,7 +24,7 @@
 </div>
 <div class="row" >
 	<div class="col-sm-8" >
-		<h2 id="h2">Receive Purchase Order</h2">
+		<h2 id="h2">Receive Purchase Order View</h2">
 	</div>
 	<div class="col-sm-4">
 		<ul class="nav nav-pills" style="margin-top:5px;">
@@ -98,7 +98,7 @@
 		</div>
 		<br><br>
 		<div class="row">
-			<h3 id="h3"><b>Product Detail</b></h3>
+			<h3 id="h3"><b>II. Product Detail</b></h3>
 		</div>
 		<br>
 		<div id="items">
@@ -156,6 +156,15 @@
 					$total_cost = $unit_cost * $quantity;
 					$total_amount += $total_cost;
 					$pod_id = $row["id"];
+					//load received quantity
+					$sql_received_quantity = "SELECT * FROM ".TBL_INVENTORY_TRANSACTIONS.
+					                         " WHERE PO_ID = $po_id AND Product_ID = ". $row["product_id"];
+					$res_received_items = $link->query($sql_received_quantity);
+					$received_quantity = 0;
+					if($res_received_items && $res_received_items->num_rows > 0){
+						$row = $res_received_items->fetch_assoc();
+						$received_quantity = $row["QTY"];
+					}
 					echo "<div class='form-row'>
 							<input type='hidden' class='po-class-pod-id' value='$pod_id'>
 							<div class='form-group col-md-2'>
@@ -176,10 +185,10 @@
 								<input type='text' class='form-control total_cost' readonly value='$total_cost'>
 						    </div>
 						    <div class='form-group col-md-1'>
-						    	<input type='number' class='form-control receive-quantity' min='0'  value='0'>
+						    	<input type='number' class='form-control receive-quantity' readonly min='0' value='$received_quantity'>
 							</div>
 							<div class='form-group col-md-3'>
-						    	<input type='text' class='form-control po-class-receive-comment'>
+						    	<input type='text' class='form-control po-class-receive-comment' readonly>
 							</div>
 						    </div>";
 				}
@@ -202,54 +211,13 @@
 		<div class="col-sm-5">
 			<ul class="nav nav-pills" style="float:right;">
 				<li role="presentation"> <a href="purchase.php" class="btn btn-info">Back</a></li> &emsp;&emsp;&emsp;
-				<li role="presentation"> <a id="id-po-save" class="btn btn-warning">Confirm Receive</a></li> &emsp;
 			</ul>
 		</div>
 	</div>
 </div>
 <?php include("footer.php"); ?>
-<?php include_once('add_new_supplier_modal.php'); ?>
-<?php
-	$res = $link->query("SELECT * FROM ". TBL_PRODUCTS. " ORDER BY product_id ASC");
-	$product_options = "";
-	if($res->num_rows > 0){
-		while($row = $res->fetch_assoc()){
-			$product_options = $product_options . "<option value=\"{$row["product_id"]}\"> {$row["product_name"]} </option>";
-		}
-	}
-?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#id-po-save").on("click", function(){
-			var po_id = $("#id-po-number").attr("val");
-			var products = [];
-			$("#items").children().each(function(index, form_row){
-				var product_id = $(form_row).find(".class_select_product option:selected").val();
-				if(product_id && product_id != "null"){
-					var receive_quantity = $(form_row).find(".receive-quantity").val();
-					var item = {"product_id": product_id, "receive_quantity": receive_quantity};
-					products.push(item);
-				}
-			});
-			$.ajax({
-				type: "POST",
-				url: "controller.php",
-				data:{
-					"action": "confirm_purchase_order_received",
-					"po_id": po_id,
-					"products": JSON.stringify(products)
-				},
-				success: function(data){
-					console.log(data);
-					if(data == "0"){
-						alert("Save receive purchase order failed!");
-					}else{
-						alert("Save receive purchase order is successful!");
-						window.location.href = "purchase.php";
-					}
-				}
-			});
-		});
 
 	});
 </script>
