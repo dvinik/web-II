@@ -14,9 +14,9 @@
 	</div>
 		<div class="col-sm-10" >
 			 <ul class="nav nav-pills">
-				<li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
+				<li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
 				<li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
-				<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
+				<li role="presentation"><a href="supplier_list.php" class="nav_text active" menu="Purchase">Supplier List</a></li>
 				<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
 	     	</ul>
 		</div>
@@ -103,24 +103,26 @@
 <script type="text/javascript">
 $(function(){
 	$(".delete_supplier").on('click',function(){
-		var del_id= $(this).attr('a_id');
-		// alert(del_id);
-		var $ele = $(this).parent().parent();
-		$.ajax({
-			type:'POST',
-			url:'controller.php',
-			data:{
-				'action':"delete_supplier",
-				'del_id':del_id
-			},
-			success: function(data){
-				if(data=="YES"){
-					$ele.fadeOut().remove();
-				}else{
-					alert("can't delete the row");
+		if(confirm("Are you sure want to delete?")){
+			var del_id= $(this).attr('a_id');
+			// alert(del_id);
+			var $ele = $(this).parent().parent();
+			$.ajax({
+				type:'POST',
+				url:'controller.php',
+				data:{
+					'action':"delete_supplier",
+					'del_id':del_id
+				},
+				success: function(data){
+					if(data=="YES"){
+						$ele.fadeOut().remove();
+					}else{
+						alert("can't delete the row");
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	$(".edit_supplier").on("click",function(){
 		$("#id_modal_edit_supplier").val($(this).attr("supplier_id"));

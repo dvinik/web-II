@@ -23,7 +23,7 @@
 		<!-- <a href="purchase_order_create.php" class="btn btn-primary">Create New Purchase Order</a> -->
 		</div>
 		<div class="col-sm-4">
-		<a href="purchase_order_create.php" class="btn btn-primary "><i class="fa fa-plus" aria-hidden="true"></i> <b>Create New Purchase Order</b></a>
+		<a href="purchase_order_create.php" class="btn btn-primary "><i class="fa fa-.btn-primary" aria-hidden="true"></i> <b>Create New Purchase Order</b></a>
 		<!-- <i class="fa fa-print fa-3x" aria-hidden="true" style="color:blue"></i> -->
 		<!-- <li role="presentation" class="active"><a href="#" class="btn btn-success">Print</a></li> &nbsp; -->
 		<!-- <li role="presentation" class="active"><a href="#" class="btn btn-primary">Print Preview</a></li> -->

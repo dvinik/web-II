@@ -29,4 +29,9 @@
 	define("PO_STATUS_CANCELLED", 4);
 	$PO_STATUS = ["1"=>"New", "2"=>"Submitted", "3"=>"Received", "4"=>"Cancelled"];
 
+	define("PAYMENT_CASH", 1);
+	define("PAYMENT_CHECK", 2);
+	define("PAYMENT_CREDIT", 3);
+
+
 ?>

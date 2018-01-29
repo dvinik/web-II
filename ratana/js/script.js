@@ -15,22 +15,7 @@ $(document).ready(function() {
             return false;
         }
     });
+
+
 });
 
-// function list_suppliers(){
-// 	$link = open_db_connection();
-// 	if(!$link){
-// 		echo "Cannot connect to db";
-// 	}else{
-// 		$sql = "SELECT * FROM Suppliers";
-// 		$res = $link->query($sql);
-// 		if($res->num_rows > 0){
-// 			while($row = $res->fetch_assoc()){
-// 				$id = $row["supplier_id"];
-// 				$name = $row["supplier_name"];
-// 				echo "<option value='$id'>$name</option>";
-// 			}
-// 		}
-// 		$conn->close();
-// 	}
-// }

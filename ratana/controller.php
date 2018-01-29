@@ -240,6 +240,34 @@
 		}
 	}
 
+	function add_new_paid_invoice(){
+		global $link;
+		$invoice_number = $_POST["invoice_number"];
+		$invoice_date = $_POST["invoice_date"];
+		$po_id = $_POST["po_id"];
+		$due_date = $_POST["due_date"];
+		$paid_date = $_POST["paid_date"];
+		$payment_method =$_POST["payment_method"];
+		$total_amount = $_POST["total_amount"];
+
+		$res_check = $link->query("SELECT * FROM ".TBL_PURCHASE_ORDER_INVOICES." WHERE invoice_number = $invoice_number");
+		if($res_check->num_rows > 0){
+			echo "0";
+		}else{
+			$sql = "INSERT INTO ".TBL_PURCHASE_ORDER_INVOICES."(invoice_number,invoice_date,po_id ,due_date, amt_due )
+					VALUES('$invoice_number', '$invoice_date','$po_id','$due_date','$total_amount'); 
+
+					INSERT INTO ".TBL_PAYMENTS."(invoice_number, amount_paid, date_paid, payment_type_id )
+					VALUES('$invoice_number', '$total_amount','$paid_date','$payment_method'); ";
+					// error_log($sql);
+			if($link->multi_query($sql)){
+				echo "1";
+			}else{
+				echo "2";
+			}
+		}
+	}
+
 
 	if($link) $link->close();
 ?>

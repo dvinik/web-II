@@ -7,11 +7,10 @@
 		</div>
 		<div class="col-sm-10" >
 			<ul class="nav nav-pills">
-				<li role="presentation"><a href="" class="nav_text active">Purchase Order </a></li>
-				<li role="presentation"><a href="receive_order.php" class="nav_text">Receive Order</a></li>
+				<li role="presentation"><a href="purchase.php" class="nav_text">Purchase Order </a></li>
 				<li role="presentation"><a href="payment.php" class="nav_text">Payment</a></li>
 				<li role="presentation"><a href="supplier_list.php" class="nav_text">Supplier List</a></li>
-				<li role="presentation"><a href="supplier_report.php" class="nav_text">Suppliers Reports</a></li>
+				<li role="presentation"><a href="supplier_report.php" class="nav_text active" menu="Purchase">Suppliers Reports</a></li>
 	     	</ul>
 		</div>
 	</div>
