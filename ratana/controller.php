@@ -268,6 +268,38 @@
 		}
 	}
 
+	function add_new_journal(){
+		global $link;
+
+		$entry_date = $_POST["entry_date"];
+		// echo("$entry_date");
+		$account_id = $_POST["account_id"];
+		$debit = $_POST["debit"];
+		$credit = $_POST["credit"];
+		$entry_description = $_POST["entry_description"];
+
+		$sql = "INSERT INTO ".TBL_JOURNAL." (entry_date, account_id, debit, credit, entry_description) VALUES('$entry_date', $account_id, $debit, $credit, '$entry_description');";
+		// error_log($sql);
+
+		if($link->query($sql)){
+			echo "1";
+		}else{
+			echo "2";
+		}
+	}
+
+	function delete_journal(){
+		global $link;
+		$del_id = $_POST['del_id'];
+		$mysql ="DELETE FROM ".TBL_JOURNAL." WHERE entry_id = $del_id";
+		if($link->query($mysql)){
+			echo "YES";
+		}else{
+			echo "NO";
+		}
+	}
+			
+	
 
 	if($link) $link->close();
 ?>

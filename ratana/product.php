@@ -12,29 +12,27 @@
      </ul>
 	 </div>
 	</div>
-  
-    <div class="row" style="background-color: #f2f2f2">
-      <div class="col-sm-6">
-        <h2 id="h2">Product List</h2>
-    </div>
-      <div class="col-sm-6">
-        <div class="right">
-          <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="#">Print</a></li>
-            <!-- <li role="presentation"><a href="#">Save</a></li>
-            <li role="presentation"><a href="#">Save and New</a></li> -->
-          </ul>
+<div class="row" style="background-color: #f2f2f2">
+        <div class="col-sm-8">
+          <h1 id="h2">Product Lists</h1>
         </div>
-  </div>
+        <div class="col-sm-4">
+            <ul class="nav nav-pills" style="margin-top:5px;">
+              <li role="presentation" class="active"><a href="#" class="btn btn-success">Print</a></li> &nbsp;
+              <li role="presentation" class="active"><a href="#" class="btn btn-primary">Print Preview</a></li>
+            </ul>
+        </div>
+
+</div>
     <hr>
   <div class="container">
     <div class="jumbotron">
         <div class="row">
           <div class="col-sm-9">
-            <span><b>Products View</b></span>
+            <!-- <span><b>Products View</b></span> -->
           </div>
           <div class="col-sm-3">
-          <button id="add_button_product_list">+Add new Product</button>
+          <button id="add_button_product_list"  class="btn btn-primary" ><i class="fa fa-plus" aria-hidden="true"></i> Add new Product</button>
           </div>
         </div>
         <br>

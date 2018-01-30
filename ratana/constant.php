@@ -3,7 +3,7 @@
 	define("TBL_CHART_OF_ACCOUNTS_GROUPS", "chart_of_accounts_groups");
 	define("TBL_CUSTOMERS", "customers");
 	define("TBL_EMPLOYEES", "employees");
-	define("TBL_GENERAL_JOURNAL","general_journal");
+	// define("TBL_GENERAL_JOURNAL","general_journal");
 	define("TBL_INVENTORY_TRANSACTIONS", "inventory_transactions");
 	define("TBL_INVENTORY_TRANSACTION_TYPES", "inventory_transaction_types");
 	define("TBL_INVOICES", "invoices");

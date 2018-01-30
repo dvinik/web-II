@@ -55,7 +55,7 @@
 				<span><b>Date:</b></span>
 			</div>
 			<div class="col-sm-5">
-				<?php echo $po_data["po_creation_date"];   ?>
+				<?php echo date("d/m/Y");   ?>
 			</div>
 			<div class="col-sm-5">
 				<span>Bangkapi, Bangkok</span><br>

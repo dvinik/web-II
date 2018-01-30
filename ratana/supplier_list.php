@@ -36,8 +36,6 @@
 			</div>
 		</div>
 		<br>
-		
-		
 		<table class="table table-striped">
 			<thead>
 			<tr>
@@ -94,6 +92,7 @@
 			</tbody>
 		</table>
 	<!-- </div> -->
+	</div>
 
 	<?php
 		include_once('footer.php');
