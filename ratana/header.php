@@ -51,12 +51,12 @@ if (empty($_SESSION['user'])) {
 			</div>
 			<ul class="nav nav-pills">
 				<li role="presentation"><a href="index.php" class="nav_text top_menu" menu="Dashboard">Dashboard</a></li>
-				<li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Purchase">Purchase</a></li>
-				<li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Sale">Sales</a></li>
+				<li role="presentation"><a href="purchase.php" class="nav_text top_menu" menu="Purchases">Purchases</a></li>
+				<li role="presentation"><a href="revenue.php" class="nav_text top_menu" menu="Sales">Sales</a></li>
 				<li role="presentation"><a href="product.php" class="nav_text top_menu" menu="Inventory">Inventory</a></li>
-				<li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Report">Report</a></li>
-				<li role="presentation"><a href="employee.php" class="nav_text top_menu" menu="Employee">My Company</a></li>
+				<li role="presentation"><a href="journal.php" class="nav_text top_menu" menu="Journal Entry">Journal Entry</a></li>
+				<li role="presentation"><a href="report.php" class="nav_text top_menu" menu="Reports">Reports</a></li>
+				
 			</ul>
-
 		</div>
 	</div>

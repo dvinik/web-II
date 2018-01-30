@@ -22,6 +22,7 @@
 	define("TBL_REPORTING_PERIODS","reporting_periods");
 	define("TBL_SUPPLIERS", "suppliers");
 	define("TBL_TRANSACTIONS","transactions");
+	define("TBL_JOURNAL", "journal");
 	
 	define("PO_STATUS_NEW", 1);
 	define("PO_STATUS_SUBMITTED", 2);
