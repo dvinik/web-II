@@ -28,34 +28,39 @@
 	<table class="table table-striped">
 		<thead>
 		<tr>
-
-			<th scope="col">Order ID</th>
-			<th scope="col">Customer ID</th>
-			<th scope="col">Order Date</th>
-			<th scope="col">Payment Type</th>
-			<th scope="col">Paid Date</th>
-			<th scope="col">Status ID</th>
-			<th scope="col">Delete</th>
+			<th scope="col" width="3%">#</th>
+			<th scope="col" width="20%">Customer</th>
+			<th scope="col" width="15%">Order Date</th>
+			<th scope="col" width="10%">Payment Type</th>
+			<th scope="col" width="15%">Paid Date</th>
+			<th scope="col" width="10%">Status</th>
 		</tr>
 		</thead>
 		<tbody>
 
 		<?php
-		$sql = "SELECT * FROM ".TBL_ORDERS." ORDER BY order_id ASC";
+		$sql = "SELECT o.*, c.first_name, c.last_name FROM ".TBL_ORDERS." AS o INNER JOIN "
+		       .TBL_CUSTOMERS." AS c ON o.customer_id = c.id  ORDER BY o.order_id DESC";
 		$res = $link->query($sql);
 		if($res->num_rows > 0){
+			$index = 0;
 			while($row = $res->fetch_assoc()){
+				$index ++;
 				echo "<tr>";
 				$order_id = $row["order_id"];
+				$status_id = $row["status_id"];
+				$status = isset($ORDER_STATUS[$status_id]) ? $ORDER_STATUS[$status_id] : "";
+				$order_date = format_date($row["order_date"]);
+				$paid_date = format_date($row["paid_date"]);
 
-				echo "<td>{$row["order_id"]}</td>";
-				echo "<td>{$row["customer_id"]}</td>";
-				echo "<td>{$row["order_date"]}</td>";
+				echo "<td>{$index}</td>";
+				echo "<td>{$row["first_name"]} {$row["last_name"]}</td>";
+				echo "<td>{$order_date}</td>";
 				echo "<td>{$row["payment_type"]}</td>";
-				echo "<td>{$row["paid_date"]}</td>";
-				echo "<td>{$row["status_id"]}</td>";
+				echo "<td>{$paid_date}</td>";
+				echo "<td>{$status}</td>";
 				//echo "<td><i class=' edit_sales_order fa fa-pencil fa-1x'></i></td>";
-				echo "<td><i a_id='$order_id' class='delete_sales_order fa fa-trash' aria-hidden='true'></i> </td>";
+//				echo "<td><i a_id='$order_id' class='delete_sales_order fa fa-trash' aria-hidden='true'></i> </td>";
 
 				echo "</tr>";
 			}}

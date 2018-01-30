@@ -54,8 +54,10 @@
 						$po_id = $row["po_id"];
 						$status = $row["po_status_id"];
 
+						$date = format_date($row["po_creation_date"]);
+
 						echo "<td>{$po_id}</td>";
-						echo "<td>{$row["po_creation_date"]}</td>";
+						echo "<td>{$date}</td>";
 						echo "<td>{$row["supplier_name"]}</td>";
 						echo "<td>".$PO_STATUS[$status]."</td>";
 						echo "<td po_id='$po_id'>";

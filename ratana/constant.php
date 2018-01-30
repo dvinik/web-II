@@ -24,6 +24,9 @@
 	define("TBL_TRANSACTIONS","transactions");
 	define("TBL_JOURNAL", "journal");
 	
+	
+
+	
 	define("PO_STATUS_NEW", 1);
 	define("PO_STATUS_SUBMITTED", 2);
 	define("PO_STATUS_RECEIVED", 3);
@@ -34,5 +37,10 @@
 	define("PAYMENT_CHECK", 2);
 	define("PAYMENT_CREDIT", 3);
 
+	define("ORDER_STATUS_NEW", 0);
+	define("ORDER_STATUS_INVOICED", 1);
+	define("ORDER_STATUS_SHIPPED", 2);
+	define("ORDER_STATUS_CLOSED", 3);
+	$ORDER_STATUS = ["0"=>"New", "1"=>"Invoiced", "2"=>"Shipped", "3"=>"Closed"];
 
 ?>

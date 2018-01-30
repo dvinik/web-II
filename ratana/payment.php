@@ -32,7 +32,8 @@
 	<table class="table table-striped tablesorter" id="invoice_order_table">
   <thead>
     <tr>
-      <th scope="col">Invoice#</th>
+      <th scope="col">Invoice #</th>
+	    <th scope="col">P.O #</th>
       <th scope="col">Invoice Date</th>
       <th scope="col">Due Date</th>
        <th scope="col">Paid Date</th>
@@ -48,24 +49,21 @@
   				 order by poi_id ASC";
    		$retval = mysqli_query($link, $sql);
    		while($row = mysqli_fetch_array($retval)) {
-				echo "<tr>";
-				$invoice_number = $row["invoice_number"];
-				$invoice_date = $row["invoice_date"];
-				$due_date = $row["due_date"];
-				$paid_date = $row["date_paid"];
-				$total_amount = $row["amt_due"];
+			echo "<tr>";
+			$invoice_date = format_date($row["invoice_date"]);
+	        $due_date = format_date($row["due_date"]);
+		    $date_paid = format_date($row["date_paid"]);
+			echo "<td>{$row["invoice_number"]}</td>";
+	        echo "<td>{$row["po_id"]}</td>";
+			echo "<td>{$invoice_date}</td>";
+			echo "<td>{$due_date}</td>";
+			echo "<td>{$date_paid}</td>";
+			echo "<td>{$row["amt_due"]}</td>";
 
 
-				echo "<td>{$invoice_number}</td>";
-				echo "<td>{$invoice_date}</td>";
-				echo "<td>{$due_date}</td>";
-				echo "<td>{$paid_date}</td>";
-				echo "<td>{$total_amount}</td>";
-
-				
-				echo "</tr>";
-			}
-			mysqli_close($link);
+			echo "</tr>";
+	    }
+		mysqli_close($link);
   ?>
 		
   

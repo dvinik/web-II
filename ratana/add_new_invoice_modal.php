@@ -87,7 +87,7 @@ $(function(){
 				"due_date": $("#due_date_invoice_modal").val(),
 				"paid_date": $("#paid_date_invoice_modal").val(),
 				"payment_method": $("#payment_method_invoice_modal").val(),
-				"check_number": $("#check_number_invoice_modal").val(),
+//				"check_number": $("#check_number_invoice_modal").val(),
 				"total_amount": $("#total_amount_invoice_modal").val(),
 
 			},

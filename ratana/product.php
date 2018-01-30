@@ -44,7 +44,7 @@
               <tr>
                 <th width="10%">Product code</th>
                 <th width="20%">Product Name</th>
-                <th width="30%">Decription</th>
+                <th width="30%">Description</th>
                 <th width="5%">Standard Cost</th>
                 <th width="10%">List Price  </th>
                 <th width="10%">Product Category </th>
@@ -53,24 +53,24 @@
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT p.*, pt.product_types FROM `products` AS p 
-                    INNER JOIN product_types AS pt ON p.product_type_id = pt.product_type_id order by p.product_id ASC";
+            $sql = "SELECT p.*, pt.product_types, SUM(QTY) AS QTY FROM `".TBL_PRODUCTS."` AS p
+                    INNER JOIN ".TBL_PRODUCT_TYPES." AS pt ON p.product_type_id = pt.product_type_id
+                    LEFT JOIN ".TBL_INVENTORY_TRANSACTIONS." AS it ON p.product_id = it.Product_ID
+                    GROUP BY Product_ID
+                    ORDER BY p.product_id ASC";
+            error_log($sql);
             $retval = mysqli_query($link, $sql);
             while($row = mysqli_fetch_array($retval)) {
               echo "<tr>";
               $id = $row["product_id"];
-              $product_code = $row["product_code"];
-              $product_name = $row["product_name"];
-              $description = $row["description"];
-              $standard_cost = $row["standard_cost"];
-              $list_price = $row["list_price"];
-              $product_type = $row["product_types"];
-              echo "<td>{$product_code}</td>";
-              echo "<td>{$product_name}</td>";
-              echo "<td>{$description}</td>";
-              echo "<td>{$standard_cost}</td>";
-              echo "<td>{$list_price}</td>";
-              echo "<td>{$product_type}</td>";
+	          $quantity = isset($row["QTY"]) ? $row["QTY"] : 0;
+              echo "<td>{$row["product_code"]}</td>";
+              echo "<td>{$row["product_name"]}</td>";
+              echo "<td>{$row["description"]}</td>";
+              echo "<td>{$row["standard_cost"]}</td>";
+              echo "<td>{$row["list_price"]}</td>";
+              echo "<td>{$row["product_types"]}</td>";
+	          echo "<td>{$quantity}</td>";
 
               //echo "<td><i supplier_id = '$supplier_id' supplier_name='$supplier_name' email ='$email' phone = '$phone' fax ='$fax' address ='$address' city = '$city' state ='$state' zipcode ='$zipcode' country ='$country' class=' edit_supplier fa fa-pencil fa-1x'></i></td>";
               //echo "<td><i a_id='$supplier_id' class='delete_supplier fa fa-trash' aria-hidden='true'></i> </td>";

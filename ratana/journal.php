@@ -33,8 +33,9 @@
 			while($row = $res->fetch_assoc()){
 				echo "<tr>";
 				$entry_id = $row["entry_id"];
+				$entry_date = format_date($row["entry_date"]);
 				echo "<td>{$entry_id}</td>";
-				echo "<td>{$row["entry_date"]}</td>";
+				echo "<td>{$entry_date}</td>";
 				echo "<td>{$row["account_id"]}</td>";
 				echo "<td>{$row["debit"]}</td>";
 				echo "<td>{$row["credit"]}</td>";

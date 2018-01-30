@@ -37,7 +37,7 @@
 		<div  class="col-sm-6">
 			<h3>Trial Balance</h3>
 			<p>TThis report summarises the debit and credit balances of each account on your chart of accounts during a period of time.</p>
-			<a href="">Run</a>
+			<a href="report_trial_balance.php">Run</a>
 
 		</div>
 	</div>

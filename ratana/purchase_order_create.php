@@ -77,7 +77,7 @@
 				<select name="supplier" class="form-control" id="supplier_select">
 					<option selected="true" disabled="disabled" value="null">Choose Supplier</option>
 					<?php
-					$sql = 'SELECT * from suppliers order by supplier_id ASC';
+					$sql = 'SELECT * from '.TBL_SUPPLIERS.' order by supplier_id ASC';
 					$retval = mysqli_query($link, $sql);
 					while($row = mysqli_fetch_array($retval)) {
 						$id = $row['supplier_id'];

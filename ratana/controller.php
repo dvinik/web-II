@@ -255,11 +255,10 @@
 			echo "0";
 		}else{
 			$sql = "INSERT INTO ".TBL_PURCHASE_ORDER_INVOICES."(invoice_number,invoice_date,po_id ,due_date, amt_due )
-					VALUES('$invoice_number', '$invoice_date','$po_id','$due_date','$total_amount'); 
-
+					VALUES($invoice_number, '$invoice_date', $po_id, '$due_date', $total_amount);
 					INSERT INTO ".TBL_PAYMENTS."(invoice_number, amount_paid, date_paid, payment_type_id )
-					VALUES('$invoice_number', '$total_amount','$paid_date','$payment_method'); ";
-					// error_log($sql);
+					VALUES($invoice_number, $total_amount, '$paid_date', $payment_method); ";
+					 error_log($sql);
 			if($link->multi_query($sql)){
 				echo "1";
 			}else{
